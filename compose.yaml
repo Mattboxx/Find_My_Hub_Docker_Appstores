@@ -2,7 +2,7 @@ name: find-my-hub
 
 services:
   web:
-    image: ghcr.io/mattbox03/find-my-web:1.0.9
+    image: ghcr.io/mattbox03/find-my-web:1.1.0
     restart: unless-stopped
     ports:
       - "${FINDMY_WEB_PORT:-8125}:8000"
@@ -31,13 +31,13 @@ services:
       retries: 3
 
   anisette:
-    image: dadoum/anisette-v3-server:latest
+    image: dadoum/anisette-v3-server@sha256:1e20384985d3c49965f444bef39d627768dacc39ea0dca91f2a535edb7591ba3
     restart: unless-stopped
     volumes:
       - anisette-data:/home/Alcoholic/.config/anisette-v3
 
   apple-provider:
-    image: ghcr.io/mattbox03/find-my-apple-provider:1.0.9
+    image: ghcr.io/mattbox03/find-my-apple-provider:1.1.0
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -54,7 +54,7 @@ services:
       retries: 6
 
   google-provider:
-    image: ghcr.io/mattbox03/find-my-google-provider:1.0.9
+    image: ghcr.io/mattbox03/find-my-google-provider:1.1.0
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}

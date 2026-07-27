@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattbox03/find-my-web:1.0.9
+    image: ghcr.io/mattbox03/find-my-web:1.1.0
     restart: unless-stopped
     ports:
       - target: 8000
@@ -39,7 +39,7 @@ services:
   anisette:
     container_name: find-my-hub-anisette
     hostname: anisette
-    image: dadoum/anisette-v3-server:latest
+    image: dadoum/anisette-v3-server@sha256:1e20384985d3c49965f444bef39d627768dacc39ea0dca91f2a535edb7591ba3
     restart: unless-stopped
     volumes:
       - /DATA/AppData/find-my-hub/anisette:/home/Alcoholic/.config/anisette-v3
@@ -49,7 +49,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattbox03/find-my-apple-provider:1.0.9
+    image: ghcr.io/mattbox03/find-my-apple-provider:1.1.0
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -70,7 +70,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattbox03/find-my-google-provider:1.0.9
+    image: ghcr.io/mattbox03/find-my-google-provider:1.1.0
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -119,13 +119,13 @@ x-casaos:
     en_US: |
       A self-hosted multi-user tracking hub for personal Apple Find My and
       Google Find Hub compatible Bluetooth trackers. It combines both provider
-      histories, reversible two-tracker linked views, device management,
+      histories, reversible multi-tracker unified views, device management,
       MQTT/Home Assistant integration, and firmware tools in one responsive
       web interface.
     it_IT: |
       Hub di tracciamento multiutente self-hosted per tracker Bluetooth
       personali compatibili con Apple Find My e Google Find Hub. Riunisce
-      cronologia dei due provider, viste reversibili che uniscono due tracker,
+      cronologia dei due provider, viste reversibili per due o più tracker,
       gestione dispositivi, integrazione MQTT/Home Assistant e strumenti
       firmware in un'unica interfaccia web responsive.
   tips:
@@ -146,9 +146,9 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.0.9"
-  update_at: "2026-07-19"
-  website: https://github.com/mattbox03/Find_My_Dual_Tracking_Frontend
-  repo: https://github.com/mattbox03/Find_My_Dual_Tracking_Frontend
-  support: https://github.com/mattbox03/Find_My_Dual_Tracking_Frontend/issues
-  docs: https://github.com/mattbox03/Find_My_Dual_Tracking_Frontend/tree/Find_My_Web_Frontend
+  version: "1.1.0"
+  update_at: "2026-07-27"
+  website: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores
+  repo: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores
+  support: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores/issues
+  docs: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores

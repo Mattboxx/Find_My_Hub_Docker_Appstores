@@ -68,14 +68,18 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattbox03/find-my-web:1.0.9`
-- `ghcr.io/mattbox03/find-my-apple-provider:1.0.9`
-- `ghcr.io/mattbox03/find-my-google-provider:1.0.9`
+- `ghcr.io/mattbox03/find-my-web:1.1.0`
+- `ghcr.io/mattbox03/find-my-apple-provider:1.1.0`
+- `ghcr.io/mattbox03/find-my-google-provider:1.1.0`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest and performs an
 anonymous manifest request for every image. Loss of public access is a blocking
 validation error because it would break one-click installation.
+
+The upstream Anisette dependency is pinned by multi-architecture manifest
+digest in every adapter, so installing the immutable catalog version cannot
+silently pull different upstream code later.
 
 ## Local validation
 
