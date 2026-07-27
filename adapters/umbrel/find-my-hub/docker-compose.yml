@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/mattbox03/find-my-web:1.1.0
+    image: ghcr.io/mattbox03/find-my-web:1.1.1
     restart: unless-stopped
     ports:
       - "8125:8000"
@@ -27,7 +27,7 @@ services:
       - ${APP_DATA_DIR}/data/anisette:/home/Alcoholic/.config/anisette-v3
 
   apple-provider:
-    image: ghcr.io/mattbox03/find-my-apple-provider:1.1.0
+    image: ghcr.io/mattbox03/find-my-apple-provider:1.1.1
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -38,7 +38,7 @@ services:
       - anisette
 
   google-provider:
-    image: ghcr.io/mattbox03/find-my-google-provider:1.1.0
+    image: ghcr.io/mattbox03/find-my-google-provider:1.1.1
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}

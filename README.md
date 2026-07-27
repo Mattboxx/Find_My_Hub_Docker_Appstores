@@ -68,9 +68,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattbox03/find-my-web:1.1.0`
-- `ghcr.io/mattbox03/find-my-apple-provider:1.1.0`
-- `ghcr.io/mattbox03/find-my-google-provider:1.1.0`
+- `ghcr.io/mattbox03/find-my-web:1.1.1`
+- `ghcr.io/mattbox03/find-my-apple-provider:1.1.1`
+- `ghcr.io/mattbox03/find-my-google-provider:1.1.1`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest and performs an

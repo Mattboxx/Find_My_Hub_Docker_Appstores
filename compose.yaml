@@ -2,7 +2,7 @@ name: find-my-hub
 
 services:
   web:
-    image: ghcr.io/mattbox03/find-my-web:1.1.0
+    image: ghcr.io/mattbox03/find-my-web:1.1.1
     restart: unless-stopped
     ports:
       - "${FINDMY_WEB_PORT:-8125}:8000"
@@ -37,7 +37,7 @@ services:
       - anisette-data:/home/Alcoholic/.config/anisette-v3
 
   apple-provider:
-    image: ghcr.io/mattbox03/find-my-apple-provider:1.1.0
+    image: ghcr.io/mattbox03/find-my-apple-provider:1.1.1
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -54,7 +54,7 @@ services:
       retries: 6
 
   google-provider:
-    image: ghcr.io/mattbox03/find-my-google-provider:1.1.0
+    image: ghcr.io/mattbox03/find-my-google-provider:1.1.1
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
