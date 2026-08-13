@@ -7,9 +7,9 @@
       "description": "Self-hosted Apple Find My and Google Find Hub tracking dashboard.",
       "categories": ["Tracking", "IoT"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/mattbox03/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg",
+      "logo": "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg",
       "repository": {
-        "url": "https://github.com/mattbox03/Find_My_Hub_Docker_Appstores",
+        "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores",
         "stackfile": "compose.yaml"
       },
       "env": [

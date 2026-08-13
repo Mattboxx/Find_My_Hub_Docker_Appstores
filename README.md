@@ -20,7 +20,7 @@ manifest, all kept in this repository.
 ## Generic Docker installation
 
 ```bash
-git clone https://github.com/mattbox03/Find_My_Hub_Docker_Appstores.git
+git clone https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores.git
 cd Find_My_Hub_Docker_Appstores
 docker compose up -d
 ```
@@ -36,13 +36,13 @@ already registered, remove it first and then add it again so the app index is
 downloaded afresh:
 
 ```text
-https://github.com/mattbox03/Find_My_Hub_Docker_Appstores/archive/refs/heads/main.zip
+https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/archive/refs/heads/main.zip
 ```
 
 Older CasaOS installations can use:
 
 ```bash
-casaos-cli app-management register app-store https://github.com/mattbox03/Find_My_Hub_Docker_Appstores/archive/refs/heads/main.zip
+casaos-cli app-management register app-store https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/archive/refs/heads/main.zip
 ```
 
 ## Portainer
@@ -50,7 +50,7 @@ casaos-cli app-management register app-store https://github.com/mattbox03/Find_M
 Set **App Templates URL** to:
 
 ```text
-https://raw.githubusercontent.com/mattbox03/Find_My_Hub_Docker_Appstores/main/portainer/templates.json
+https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/portainer/templates.json
 ```
 
 The template deploys the root `compose.yaml` stack.
@@ -68,9 +68,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattbox03/find-my-web:1.1.1`
-- `ghcr.io/mattbox03/find-my-apple-provider:1.1.1`
-- `ghcr.io/mattbox03/find-my-google-provider:1.1.1`
+- `ghcr.io/mattboxx/find-my-web:1.1.2`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.2`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.2`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest and performs an

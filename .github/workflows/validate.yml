@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -79,9 +83,9 @@ jobs:
         run: |
           set -euo pipefail
           for image in \
-            ghcr.io/mattbox03/find-my-web:1.1.1 \
-            ghcr.io/mattbox03/find-my-apple-provider:1.1.1 \
-            ghcr.io/mattbox03/find-my-google-provider:1.1.1
+            ghcr.io/mattboxx/find-my-web:1.1.2 \
+            ghcr.io/mattboxx/find-my-apple-provider:1.1.2 \
+            ghcr.io/mattboxx/find-my-google-provider:1.1.2
           do
             manifest="$RUNNER_TEMP/$(basename "${image%%:*}").json"
             docker manifest inspect "$image" > "$manifest"

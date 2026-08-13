@@ -2,22 +2,22 @@ manifestVersion: 1
 id: find-my-hub
 category: automation
 name: Find My Hub
-version: "1.1.1"
+version: "1.1.2"
 tagline: One map for Apple Find My and Google Find Hub trackers
 description: >-
   A self-hosted multi-user tracking hub for personal Apple Find My and Google
   Find Hub compatible Bluetooth trackers, with history, reversible multi-device
   unified views, device management, MQTT and Home Assistant integration, and
   firmware tools.
-developer: mattbox03
-website: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores
+developer: Mattboxx
+website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
 dependencies: []
-repo: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores
-support: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores/issues
+repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
+support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
 port: 8125
 gallery: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
-submitter: mattbox03
-submission: https://github.com/mattbox03/Find_My_Hub_Docker_Appstores
+submitter: Mattboxx
+submission: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
