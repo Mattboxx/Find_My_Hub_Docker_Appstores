@@ -8,7 +8,7 @@ portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 | Platform | Entry point | Installation |
 | --- | --- | --- |
 | Docker, Docker Desktop, Dockge and Compose-compatible panels | `compose.yaml` | Import or run the Compose file |
-| CasaOS / ZimaOS | `Apps/FindMyHub` | Register the repository ZIP as an external store |
+| CasaOS / ZimaOS | `Apps/FindMyHub` | Register the v2 catalog URL; a legacy ZIP remains available |
 | Portainer | `portainer/templates.json` | Use the raw JSON URL as an App Templates URL |
 | Umbrel Community App Store | `adapters/umbrel/` | Publish/fork this directory as an Umbrel community store |
 | Runtipi | `adapters/runtipi/apps/find-my-hub/` | Publish/fork the adapter in a Runtipi app store |
@@ -31,19 +31,33 @@ Both provider tokens may remain empty on a trusted local network.
 
 ## CasaOS / ZimaOS
 
-In **App Store -> ADD**, register the source below. If an older copy was
-already registered, remove it first and then add it again so the app index is
-downloaded afresh:
+Recent ZimaOS versions use the v2 static catalog protocol. In
+**App Store -> Add Source**, register this URL without appending a file name:
 
 ```text
-https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/archive/refs/heads/main.zip
+https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages
 ```
 
-Older CasaOS installations can use:
+The generated `store.json`, `index.json`, application manifests, and assets
+are published automatically from the `main` branch. The GitHub source archive
+is not a published v2 catalog and should not be registered on recent ZimaOS.
+
+Older CasaOS/ZimaOS installations that still accept only a ZIP can use this
+stable, generated v1-compatible URL:
+
+```text
+https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store/main.zip
+```
+
+For the legacy CasaOS CLI:
 
 ```bash
-casaos-cli app-management register app-store https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/archive/refs/heads/main.zip
+casaos-cli app-management register app-store https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store/main.zip
 ```
+
+If the old source is already saved, remove it before adding the new URL. ZimaOS
+may cache external stores for several minutes; after adding the source, wait
+for its refresh cycle or restart the App Store service once.
 
 ## Portainer
 
@@ -73,9 +87,10 @@ images:
 - `ghcr.io/mattboxx/find-my-google-provider:1.1.2`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
-manifests. The CI validates every JSON and Compose manifest and performs an
-anonymous manifest request for every image. Loss of public access is a blocking
-validation error because it would break one-click installation.
+manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
+v2 catalog, and performs an anonymous manifest request for every image. Loss
+of public access is a blocking validation error because it would break
+one-click installation.
 
 The upstream Anisette dependency is pinned by multi-architecture manifest
 digest in every adapter, so installing the immutable catalog version cannot
