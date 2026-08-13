@@ -147,7 +147,7 @@ x-casaos:
   scheme: http
   index: /
   version: "1.1.2"
-  update_at: "2026-07-27"
+  update_at: "2026-08-13"
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
