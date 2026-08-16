@@ -29,6 +29,11 @@ Open `http://HOST:8125`. Optional variables are `FINDMY_WEB_PORT`,
 `APPLE_SETUP_TOKEN`, `GOOGLE_TOKEN`, `RETENTION_DAYS`, and `REFRESH_INTERVAL`.
 Both provider tokens may remain empty on a trusted local network.
 
+The catalog does not bundle or require Traccar. A standard existing Traccar
+Server can be enabled later from the administrator **Setup → Traccar map**
+card. If disabled or unreachable, Find My Hub continues to manage providers,
+users, history, MQTT, unified views, and its own map independently.
+
 ## CasaOS / ZimaOS
 
 Recent ZimaOS versions use the v2 static catalog protocol. In
@@ -82,9 +87,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.3`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.3`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.3`
+- `ghcr.io/mattboxx/find-my-web:1.1.4`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.4`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.4`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
