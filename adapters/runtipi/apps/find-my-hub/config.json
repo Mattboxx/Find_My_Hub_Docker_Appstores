@@ -8,7 +8,7 @@
   "dynamic_config": true,
   "id": "find-my-hub",
   "tipi_version": 2,
-  "version": "1.1.8",
+  "version": "1.1.9",
   "categories": ["automation", "utilities"],
   "description": "Self-hosted multi-user hub for Apple Find My and Google Find Hub trackers, with reversible multi-device unified views and MQTT.",
   "short_desc": "Apple and Google tracker dashboard",

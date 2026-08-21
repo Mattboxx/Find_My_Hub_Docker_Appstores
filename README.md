@@ -87,9 +87,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.8`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.8`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.8`
+- `ghcr.io/mattboxx/find-my-web:1.1.9`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.9`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.9`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
