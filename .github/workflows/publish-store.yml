@@ -75,6 +75,35 @@ jobs:
       - name: Refresh CDN files
         shell: bash
         run: |
-          curl -fsSL "https://purge.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store.json" || true
-          curl -fsSL "https://purge.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/index.json" || true
-          curl -fsSL "https://purge.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store/main.zip" || true
+          set -euo pipefail
+          for path in \
+            store.json \
+            index.json \
+            store/main.zip \
+            apps/io.github.mattbox03.findmyhub/meta.json \
+            apps/io.github.mattbox03.findmyhub/docker-compose.yml
+          do
+            curl --fail --silent --show-error \
+              "https://purge.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/${path}" \
+              >/dev/null
+          done
+
+      - name: Verify CDN exposes the published app version
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_version="$(python3 -c 'import json; print(json.load(open("adapters/runtipi/apps/find-my-hub/config.json", encoding="utf-8"))["version"])')"
+          for attempt in 1 2 3 4 5 6
+          do
+            published_version="$(curl --fail --silent --show-error \
+              "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/apps/io.github.mattbox03.findmyhub/meta.json?refresh=${GITHUB_RUN_ID}-${attempt}" \
+              | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')"
+            if [ "$published_version" = "$expected_version" ]; then
+              echo "CDN exposes Find My Hub ${published_version}"
+              exit 0
+            fi
+            echo "CDN still exposes ${published_version}; retrying"
+            sleep $((attempt * 5))
+          done
+          echo "CDN did not expose Find My Hub ${expected_version} after refresh" >&2
+          exit 1

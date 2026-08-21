@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.5
+    image: ghcr.io/mattboxx/find-my-web:1.1.8
     restart: unless-stopped
     ports:
       - target: 8000
@@ -49,7 +49,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.5
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.8
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -70,7 +70,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.5
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.8
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -144,8 +144,8 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.5"
-  update_at: "2026-08-16"
+  version: "1.1.8"
+  update_at: "2026-08-21"
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
