@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "updated_at": "2026-08-21T10:21:37Z",
+  "app_count": 1,
+  "base_url": "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages",
+  "apps": [
+    {
+      "id": "io.github.mattbox03.findmyhub",
+      "title": "Find My Hub",
+      "tagline": "One map for Apple Find My and Google Find Hub trackers.",
+      "category": "Home",
+      "categories": [
+        "home"
+      ],
+      "author": "Mattboxx",
+      "developer": "Mattboxx",
+      "architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "icon": "/apps/io.github.mattbox03.findmyhub/assets/icon.svg",
+      "thumbnail": "/apps/io.github.mattbox03.findmyhub/assets/icon.svg",
+      "compose_url": "/apps/io.github.mattbox03.findmyhub/docker-compose.yml",
+      "meta_url": "/apps/io.github.mattbox03.findmyhub/meta.json",
+      "content_hash": "c3abeac8",
+      "version": "1.1.9"
+    }
+  ]
+}

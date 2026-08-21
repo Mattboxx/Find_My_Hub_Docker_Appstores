@@ -1,0 +1,9 @@
+{
+  "id": "io.github.mattbox03.findmyhub",
+  "title": "Find My Hub",
+  "description": "Hub di tracciamento multiutente self-hosted per tracker Bluetooth\npersonali compatibili con Apple Find My e Google Find Hub. Riunisce\ncronologia dei due provider, viste reversibili per due o più tracker,\ngestione dispositivi, integrazione MQTT/Home Assistant e strumenti\nfirmware in un'unica interfaccia web responsive.\n",
+  "tagline": "Una sola mappa per i tracker Apple Find My e Google Find Hub.",
+  "tips": {
+    "before_install": "Questa applicazione usa integrazioni non ufficiali ottenute tramite\nreverse engineering e non è affiliata con Apple o Google. Usa account\ndedicati e soltanto tracker di tua proprietà. Apple richiede la 2FA via\nSMS; Google richiede un secrets.json generato con il login desktop del\nprogetto upstream. I token API locali sono facoltativi e configurabili\ndalle impostazioni dell'app.\n"
+  }
+}
