@@ -8,7 +8,7 @@ portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 | Platform | Entry point | Installation |
 | --- | --- | --- |
 | Docker, Docker Desktop, Dockge and Compose-compatible panels | `compose.yaml` | Import or run the Compose file |
-| CasaOS / ZimaOS | `Apps/FindMyHub` | Register the v2 catalog URL; a legacy ZIP remains available |
+| CasaOS / ZimaOS | `Apps/FindMyHub` | Register the published v2 `store.json` URL |
 | Portainer | `portainer/templates.json` | Use the raw JSON URL as an App Templates URL |
 | Umbrel Community App Store | `adapters/umbrel/` | Publish/fork this directory as an Umbrel community store |
 | Runtipi | `adapters/runtipi/apps/find-my-hub/` | Publish/fork the adapter in a Runtipi app store |
@@ -36,29 +36,17 @@ users, history, MQTT, unified views, and its own map independently.
 
 ## CasaOS / ZimaOS
 
-Recent ZimaOS versions use the v2 static catalog protocol. In
-**App Store -> Add Source**, register this URL without appending a file name:
+Current ZimaOS versions use the v2 static catalog protocol. In
+**App Store -> Add Source**, register the complete JSON source URL:
 
 ```text
-https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages
+https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store.json
 ```
 
 The generated `store.json`, `index.json`, application manifests, and assets
 are published automatically from the `main` branch. The GitHub source archive
-is not a published v2 catalog and should not be registered on recent ZimaOS.
-
-Older CasaOS/ZimaOS installations that still accept only a ZIP can use this
-stable, generated v1-compatible URL:
-
-```text
-https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store/main.zip
-```
-
-For the legacy CasaOS CLI:
-
-```bash
-casaos-cli app-management register app-store https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store/main.zip
-```
+and the old `main.zip` address are not v2 catalog sources and must not be
+registered on current ZimaOS releases.
 
 If the old source is already saved, remove it before adding the new URL. ZimaOS
 may cache external stores for several minutes; after adding the source, wait
