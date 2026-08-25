@@ -32,30 +32,15 @@ jobs:
           report-json: out/build-v2-report.json
           report-title: Find My Hub ZimaOS V2 Catalog
 
-      - name: Build legacy CasaOS and ZimaOS ZIP
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p dist/store
-          zip -q -r dist/store/main.zip \
-            Apps \
-            category-list.json \
-            featured-apps.json \
-            recommend-list.json \
-            store-config.json \
-            supported-languages.json
-          touch dist/.nojekyll
-
       - name: Verify published catalog payload
         shell: bash
         run: |
           set -euo pipefail
           test -s dist/store.json
           test -s dist/index.json
-          test -s dist/store/main.zip
           python -m json.tool dist/store.json >/dev/null
           python -m json.tool dist/index.json >/dev/null
-          unzip -t dist/store/main.zip >/dev/null
+          touch dist/.nojekyll
 
       - name: Upload catalog artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -79,7 +64,6 @@ jobs:
           for path in \
             store.json \
             index.json \
-            store/main.zip \
             apps/io.github.mattbox03.findmyhub/meta.json \
             apps/io.github.mattbox03.findmyhub/docker-compose.yml
           do
