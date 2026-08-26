@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.9
+    image: ghcr.io/mattboxx/find-my-web:1.1.10
     restart: unless-stopped
     ports:
       - target: 8000
@@ -22,11 +22,6 @@ services:
       REFRESH_INTERVAL: "1800"
     volumes:
       - /DATA/AppData/find-my-hub/web:/data
-    depends_on:
-      apple-provider:
-        condition: service_healthy
-      google-provider:
-        condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=3)"]
       interval: 30s
@@ -49,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.9
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.10
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -70,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.9
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.10
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -144,8 +139,8 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.9"
-  update_at: "2026-08-21"
+  version: "1.1.10"
+  update_at: "2026-08-26"
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues

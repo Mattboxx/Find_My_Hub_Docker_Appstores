@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/mattboxx/find-my-web:1.1.9
+    image: ghcr.io/mattboxx/find-my-web:1.1.10
     restart: unless-stopped
     environment:
       ENDPOINT_URL: http://apple-provider:6176
@@ -19,9 +19,6 @@ services:
     x-runtipi:
       is_main: true
       internal_port: 8000
-    depends_on:
-      - apple-provider
-      - google-provider
 
   anisette:
     image: dadoum/anisette-v3-server@sha256:1e20384985d3c49965f444bef39d627768dacc39ea0dca91f2a535edb7591ba3
@@ -32,7 +29,7 @@ services:
       - tipi_main_network
 
   apple-provider:
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.9
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.10
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -45,7 +42,7 @@ services:
       - anisette
 
   google-provider:
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.9
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.10
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
