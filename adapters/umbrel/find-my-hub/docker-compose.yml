@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/mattboxx/find-my-web:1.1.9
+    image: ghcr.io/mattboxx/find-my-web:1.1.10
     restart: unless-stopped
     ports:
       - "8125:8000"
@@ -16,9 +16,6 @@ services:
       REFRESH_INTERVAL: "1800"
     volumes:
       - ${APP_DATA_DIR}/data/web:/data
-    depends_on:
-      - apple-provider
-      - google-provider
 
   anisette:
     image: dadoum/anisette-v3-server@sha256:1e20384985d3c49965f444bef39d627768dacc39ea0dca91f2a535edb7591ba3
@@ -27,7 +24,7 @@ services:
       - ${APP_DATA_DIR}/data/anisette:/home/Alcoholic/.config/anisette-v3
 
   apple-provider:
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.9
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.10
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -38,7 +35,7 @@ services:
       - anisette
 
   google-provider:
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.9
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.10
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
