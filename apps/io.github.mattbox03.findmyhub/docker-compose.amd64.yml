@@ -1,0 +1,112 @@
+name: findmyhub
+services:
+  web:
+    container_name: find-my-hub-web
+    hostname: find-my-hub-web
+    image: ghcr.io/mattboxx/find-my-web:1.1.11@sha256:fc7ea825888dc9b1b5d73f030fe608d80b3a92368dcfa6e92b632ffabe532964
+    restart: unless-stopped
+    ports:
+    - target: 8000
+      published: '8125'
+      protocol: tcp
+    environment:
+      ENDPOINT_URL: http://apple-provider:6176
+      APPLE_SETUP_TOKEN: ${APPLE_SETUP_TOKEN:-}
+      GOOGLE_URL: http://google-provider:5500
+      GOOGLE_TOKEN: ${GOOGLE_TOKEN:-}
+      WEB_DIR: /web
+      DATA_DIR: /data
+      DAYS: '21'
+      RETENTION_DAYS: '21'
+      REFRESH_INTERVAL: '1800'
+    volumes:
+    - /DATA/AppData/find-my-hub/web:/data
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz',
+        timeout=3)
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    networks:
+    - findmyhub
+  anisette:
+    container_name: find-my-hub-anisette
+    hostname: anisette
+    image: dadoum/anisette-v3-server@sha256:1e20384985d3c49965f444bef39d627768dacc39ea0dca91f2a535edb7591ba3
+    restart: unless-stopped
+    volumes:
+    - /DATA/AppData/find-my-hub/anisette:/home/Alcoholic/.config/anisette-v3
+    networks:
+    - findmyhub
+  apple-provider:
+    container_name: find-my-hub-apple-provider
+    hostname: apple-provider
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.11@sha256:b68a4df278b250599bb38191333787c516880c4635934b111e6deccfc41c61ce
+    restart: unless-stopped
+    environment:
+      APPLE_SETUP_PORT: '6177'
+      APPLE_SETUP_TOKEN: ${APPLE_SETUP_TOKEN:-}
+    volumes:
+    - /DATA/AppData/find-my-hub/apple:/app/endpoint/data
+    depends_on:
+    - anisette
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:6177/healthz',
+        timeout=3)
+      interval: 20s
+      timeout: 5s
+      start_period: 20s
+      retries: 6
+    networks:
+    - findmyhub
+  google-provider:
+    container_name: find-my-hub-google-provider
+    hostname: google-provider
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.11@sha256:b40864c98dba5ee82e803beff01e8e87f0e89f35db9544e71ebebe97dc9cdaaf
+    restart: unless-stopped
+    environment:
+      AUTH_TOKEN: ${GOOGLE_TOKEN:-}
+      HOST: 0.0.0.0
+      PORT: '5500'
+      GOOGLE_SETUP_PORT: '5501'
+      GOOGLE_SECRETS_FILE: /data/Auth/secrets.json
+      PYTHONUNBUFFERED: '1'
+    volumes:
+    - /DATA/AppData/find-my-hub/google-auth:/data/Auth
+    - /DATA/AppData/find-my-hub/google-keys:/data/KeyBackup
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:5501/healthz',
+        timeout=3)
+      interval: 20s
+      timeout: 5s
+      start_period: 20s
+      retries: 6
+    networks:
+    - findmyhub
+networks:
+  findmyhub:
+    driver: bridge
+x-casaos:
+  id: io.github.mattbox03.findmyhub
+  main: web
+  icon: https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/apps/io.github.mattbox03.findmyhub/assets/icon.svg
+  title:
+    en_US: Find My Hub
+    it_IT: Find My Hub
+  port_map: '8125'
+  scheme: http
+  index: /
+  version: 1.1.11
