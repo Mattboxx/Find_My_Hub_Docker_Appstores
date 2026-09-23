@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "store_id": "find-my-hub-docker-catalog",
+  "name": "Find My Hub Docker App Stores",
+  "description": "Multi-platform Docker app catalog for Find My Hub.",
+  "maintainer": "Mattboxx",
+  "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores"
+}
