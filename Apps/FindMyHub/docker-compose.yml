@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.11
+    image: ghcr.io/mattboxx/find-my-web:1.1.12
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.11
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.12
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.11
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.12
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -139,8 +139,11 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.11"
-  update_at: "2026-08-26"
+  version: "1.1.12"
+  update_at: "2026-09-23"
+  release_notes:
+    en_US: "Fix missing Apple sightings for trackers detected in the same second; add gateway timeouts and tolerate malformed reports. Existing keys and firmware remain valid."
+    it_IT: "Corregge la perdita di posizioni Apple per tracker rilevati nello stesso secondo; aggiunge timeout e gestione dei report malformati. Chiavi e firmware esistenti restano validi."
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
