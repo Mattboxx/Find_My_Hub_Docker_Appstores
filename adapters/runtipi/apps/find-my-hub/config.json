@@ -7,8 +7,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "find-my-hub",
-  "tipi_version": 2,
-  "version": "1.1.11",
+  "tipi_version": 3,
+  "version": "1.1.12",
   "categories": ["automation", "utilities"],
   "description": "Self-hosted multi-user hub for Apple Find My and Google Find Hub trackers, with reversible multi-device unified views and MQTT.",
   "short_desc": "Apple and Google tracker dashboard",
@@ -18,6 +18,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1784239200000,
-  "updated_at": 1785110400000,
+  "updated_at": 1790121600000,
   "min_tipi_version": "4.8.0"
 }
