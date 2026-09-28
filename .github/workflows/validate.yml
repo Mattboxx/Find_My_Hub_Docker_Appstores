@@ -93,10 +93,21 @@ jobs:
       - name: Verify ZimaOS protocol v2 output
         run: |
           set -euo pipefail
+          expected_version="$(python3 -c 'import json; print(json.load(open("adapters/runtipi/apps/find-my-hub/config.json", encoding="utf-8"))["version"])')"
           test -s dist/store.json
+          test -s dist/store.it_IT.json
           test -s dist/index.json
+          test -s dist/index.it_IT.json
+          test -s dist/metadata.sha256
+          test -s dist/metadata.tar.gz
           python -m json.tool dist/store.json >/dev/null
+          python -m json.tool dist/store.it_IT.json >/dev/null
           python -m json.tool dist/index.json >/dev/null
+          python -m json.tool dist/index.it_IT.json >/dev/null
+          python3 scripts/validate_catalog_compose.py "$expected_version" \
+            dist/apps/io.github.mattbox03.findmyhub/docker-compose.yml \
+            dist/apps/io.github.mattbox03.findmyhub/docker-compose.amd64.yml \
+            dist/apps/io.github.mattbox03.findmyhub/docker-compose.arm64.yml
 
       - name: Verify public multi-architecture images
         run: |

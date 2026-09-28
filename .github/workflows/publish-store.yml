@@ -36,10 +36,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          expected_version="$(python3 -c 'import json; print(json.load(open("adapters/runtipi/apps/find-my-hub/config.json", encoding="utf-8"))["version"])')"
           test -s dist/store.json
+          test -s dist/store.it_IT.json
           test -s dist/index.json
+          test -s dist/index.it_IT.json
+          test -s dist/metadata.sha256
+          test -s dist/metadata.tar.gz
           python -m json.tool dist/store.json >/dev/null
+          python -m json.tool dist/store.it_IT.json >/dev/null
           python -m json.tool dist/index.json >/dev/null
+          python -m json.tool dist/index.it_IT.json >/dev/null
+
+          python3 scripts/validate_catalog_compose.py "$expected_version" \
+            dist/apps/io.github.mattbox03.findmyhub/docker-compose.yml \
+            dist/apps/io.github.mattbox03.findmyhub/docker-compose.amd64.yml \
+            dist/apps/io.github.mattbox03.findmyhub/docker-compose.arm64.yml
           touch dist/.nojekyll
 
       - name: Upload catalog artifact
@@ -63,9 +75,16 @@ jobs:
           set -euo pipefail
           for path in \
             store.json \
+            store.it_IT.json \
             index.json \
+            index.it_IT.json \
+            metadata.sha256 \
+            metadata.tar.gz \
             apps/io.github.mattbox03.findmyhub/meta.json \
-            apps/io.github.mattbox03.findmyhub/docker-compose.yml
+            apps/io.github.mattbox03.findmyhub/meta.it_IT.json \
+            apps/io.github.mattbox03.findmyhub/docker-compose.yml \
+            apps/io.github.mattbox03.findmyhub/docker-compose.amd64.yml \
+            apps/io.github.mattbox03.findmyhub/docker-compose.arm64.yml
           do
             curl --fail --silent --show-error \
               "https://purge.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/${path}" \
@@ -79,15 +98,39 @@ jobs:
           expected_version="$(python3 -c 'import json; print(json.load(open("adapters/runtipi/apps/find-my-hub/config.json", encoding="utf-8"))["version"])')"
           for attempt in 1 2 3 4 5 6
           do
-            published_version="$(curl --fail --silent --show-error \
-              "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/apps/io.github.mattbox03.findmyhub/meta.json?refresh=${GITHUB_RUN_ID}-${attempt}" \
-              | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')"
-            if [ "$published_version" = "$expected_version" ]; then
-              echo "CDN exposes Find My Hub ${published_version}"
+            rm -rf cdn-verify
+            mkdir -p cdn-verify
+            verification_ok=true
+
+            if ! published_version="$(curl --fail --silent --show-error \
+              "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/apps/io.github.mattbox03.findmyhub/meta.json" \
+              | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')"; then
+              verification_ok=false
+              published_version="unavailable"
+            elif [ "$published_version" != "$expected_version" ]; then
+              verification_ok=false
+            fi
+
+            for compose_name in docker-compose.yml docker-compose.amd64.yml docker-compose.arm64.yml
+            do
+              compose_file="cdn-verify/${compose_name}"
+              if ! curl --fail --silent --show-error \
+                "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/apps/io.github.mattbox03.findmyhub/${compose_name}" \
+                --output "$compose_file"; then
+                verification_ok=false
+                continue
+              fi
+              if ! python3 scripts/validate_catalog_compose.py "$expected_version" "$compose_file"; then
+                verification_ok=false
+              fi
+            done
+
+            if [ "$verification_ok" = true ]; then
+              echo "CDN exposes Find My Hub ${published_version} in metadata and every Compose variant"
               exit 0
             fi
-            echo "CDN still exposes ${published_version}; retrying"
+            echo "CDN payload is not consistently at ${expected_version} (metadata: ${published_version}); retrying"
             sleep $((attempt * 5))
           done
-          echo "CDN did not expose Find My Hub ${expected_version} after refresh" >&2
+          echo "CDN did not expose a consistent Find My Hub ${expected_version} payload after refresh" >&2
           exit 1
