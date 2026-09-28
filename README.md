@@ -3,10 +3,12 @@
 Multi-platform Docker app-store repository for **Find My Hub**. It contains one
 portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 
-Version **1.1.12** fixes lost Apple sightings when trackers are seen in the same
-second, adds gateway timeouts, and tolerates malformed individual provider
-reports. Update the existing app including its Apple provider. Keep current
-volumes and keys; no tracker re-registration or firmware flashing is required.
+Version **1.1.13** fixes older Apple trackers losing updates after adding another
+tracker: the web requests each identity separately because Apple's multi-key
+responses can contain reports for only one tracker. Failures are isolated per
+device. Update the existing app, including its web image. Keep current volumes
+and keys; no tracker re-registration or firmware flashing is required. This fix
+also benefits installations using standard external Apple providers.
 
 ## Compatibility
 
@@ -80,9 +82,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.12`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.12`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.12`
+- `ghcr.io/mattboxx/find-my-web:1.1.13`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.13`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.13`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
