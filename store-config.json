@@ -6,8 +6,8 @@
     "it_IT": "Catalogo Docker Find My Hub"
   },
   "description": {
-    "en_US": "Multi-platform Docker app catalog for Find My Hub.",
-    "it_IT": "Catalogo di app Docker multipiattaforma per Find My Hub."
+    "en_US": "Install Find My Hub: Apple/Google map, local history, isolated accounts, optional integrations and illustrated guides.",
+    "it_IT": "Installa Find My Hub: mappa Apple/Google, storico locale, account separati, integrazioni opzionali e guide illustrate."
   },
   "maintainer": "Mattboxx",
   "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores"

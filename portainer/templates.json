@@ -4,7 +4,7 @@
     {
       "type": 3,
       "title": "Find My Hub",
-      "description": "Self-hosted Apple Find My and Google Find Hub tracking dashboard.",
+      "description": "Multi-user Apple/Google tracker hub with time-filtered history, reversible views, guarded key rotation, backups, optional MQTT/Traccar and firmware tools. Illustrated bilingual guides.",
       "categories": ["Tracking", "IoT"],
       "platform": "linux",
       "logo": "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg",
