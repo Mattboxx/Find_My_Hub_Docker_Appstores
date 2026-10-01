@@ -3,6 +3,16 @@
 Multi-platform Docker app-store repository for **Find My Hub**. It contains one
 portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 
+Version **1.1.14** adds a complete administrator web-data backup with bilingual
+restore instructions, fixes imported device settings, and corrects optional
+Radioland accelerometer selection. It retains the Apple per-identity polling
+fix. The store checks and refreshes every architecture-specific Compose file,
+preventing mixed-version catalog updates. Existing volumes and keys stay valid.
+Radioland button/LED pins still require testing on the affected PCB revision;
+the LED hardware problem is not claimed resolved.
+The matching release also supplies provider controller/patch sources and build
+recipes in a separate source ZIP. The main web repository remains private.
+
 Version **1.1.13** fixes older Apple trackers losing updates after adding another
 tracker: the web requests each identity separately because Apple's multi-key
 responses can contain reports for only one tracker. Failures are isolated per
@@ -82,9 +92,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.13`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.13`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.13`
+- `ghcr.io/mattboxx/find-my-web:1.1.14`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.14`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.14`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
