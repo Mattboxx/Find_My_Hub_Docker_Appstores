@@ -2,13 +2,14 @@ manifestVersion: 1
 id: find-my-hub
 category: automation
 name: Find My Hub
-version: "1.1.15"
+version: "1.1.16"
 tagline: One map for Apple Find My and Google Find Hub trackers
 description: >-
   A self-hosted multi-user tracking hub for personal Apple Find My and Google
   Find Hub compatible Bluetooth trackers, with history, reversible multi-device
   unified views, persistent history time ranges, isolated user accounts,
-  guarded key rotation, complete backups, optional MQTT/Home Assistant and
+  reliable Google locations above an immutable raw archive, confidence and
+  anti-teleport analysis, guarded key rotation, complete backups, optional MQTT/Home Assistant and
   Traccar, firmware tools and a configured ESP32 library. Illustrated EN/IT
   guides use synthetic images. Unofficial, not guaranteed live GPS tracking.
 developer: Mattboxx
@@ -34,6 +35,8 @@ gallery:
   - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/15-mobile-history.jpg
   - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/16-order.jpg
   - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/17-identity-rotation.jpg
+  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/18-google-reliable-reports.jpg
+  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
   - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/01-login.jpg
 path: ""
 defaultUsername: ""

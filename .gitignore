@@ -2,3 +2,5 @@ dist/
 .cache/
 out/
 *.zip
+__pycache__/
+*.py[cod]
