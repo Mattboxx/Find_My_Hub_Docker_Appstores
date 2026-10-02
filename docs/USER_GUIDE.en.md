@@ -286,6 +286,11 @@ invalid and duplicate reports, with reasons and RAW/DERIVED details. Pages are
 200 reports; use Next page or download JSON. Raw/Both draws loaded pages only,
 not the entire archive, and reloads first pages automatically after sign-in.
 
+In 1.1.18, **Info and legend** contains optional explanations, closed initially.
+Expand a report to read its reason and larger fields, stacked vertically on mobile.
+The list scrolls independently while First, Next and JSON download stay accessible.
+Use the close button or Escape to return to the map; keyboard focus is restored.
+
 ![Google report archive](screenshots/18-google-reliable-reports.jpg)
 
 Administrator parameters are under **Setup → Provider connections → Google
@@ -305,7 +310,7 @@ For defaults, algorithm limits, API pagination and migration details, read
 ## 13. Update safely and troubleshoot by layer
 
 Use the store update or pull the versioned Compose images and recreate services,
-keeping existing data volumes. `1.1.17` is reproducible; `latest` follows the
+keeping existing data volumes. `1.1.18` is reproducible; `latest` follows the
 latest released image. The store version, image tags and every architecture
 manifest must agree. Do not reinstall/delete data simply because a store has an
 outdated cache. Take backups before changing your installation.

@@ -20,8 +20,12 @@ La sezione è inizialmente chiusa per lasciare spazio ai dispositivi.
   i report geograficamente validi della pagina selezionata.
 - Entrambi: sovrappone la pagina raw alla posizione/storia affidabile.
 
-**Report** apre sempre l'archivio, anche in modalità Ottimizzati. Seleziona un
-dispositivo originale, inclusi i membri di viste unificate e i dispositivi
+**Report** apre sempre l'archivio, anche in modalità Ottimizzati. Il selettore
+del dispositivo resta sempre accessibile. **Info e legenda** raccoglie le spiegazioni,
+inizialmente chiuse: l'elenco usa lo spazio rimanente e si scorre indipendentemente.
+Apri un report per leggere motivazione e campi elaborati, impilati su mobile.
+I comandi Prima, Avanti e download JSON rimangono accessibili in fondo.
+Seleziona un dispositivo originale, inclusi i membri di viste unificate e i dispositivi
 che conservano report Google dopo la rimozione della configurazione Google.
 La rimozione della configurazione non nasconde lo storico. L'archivio non
 applica filtri di periodo, fonte o plausibilità della mappa. La paginazione
@@ -156,6 +160,10 @@ cryptography, EID renewal or their raw /location contract.
 **Google data → Optimized / Raw / Both** selects the map presentation.
 Open **Google data · developer tools** at the bottom of the device panel.
 Changing the mode updates only the map; use **Reports** to open the archive.
+Help and legend are collapsed under **Info and legend**; the report list fills
+the remaining dialog space and scrolls independently. Expanded reports show
+reasons and readable derived fields, stacked on mobile. First, Next and JSON
+download controls remain available at the bottom.
 Statuses, reasons and derived-field labels follow the selected language.
 Original and technical-analysis JSON keep their original field names.
 This section is collapsed by default. **Reports** opens the complete, unfiltered original-device archive, including
