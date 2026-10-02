@@ -1,10 +1,12 @@
 # Feature gallery / Galleria delle funzioni
 
-Captured from Find My Hub 1.1.15 and the 1.1.16/1.1.17 feature previews in isolated Docker environments with synthetic
+Captured from Find My Hub 1.1.15 and the 1.1.16/1.1.17/1.1.18 feature previews in isolated Docker environments with synthetic
 devices, accounts, identities and locations. No real credentials or personal
 tracking data were used. Provider services in this demo are unconfigured;
 screenshots document controls, not a claim of live Apple/Google connectivity.
 Open an image for its full-size version. Map attribution is retained.
+The Google report image shows the compact 1.1.18 mobile layout with an expanded
+report; explanatory text remains available under the collapsed Info and legend.
 
 Schermate reali con dati dimostrativi, non informazioni personali. Consultare
 la [guida italiana](../USER_GUIDE.it.md) o [English guide](../USER_GUIDE.en.md).

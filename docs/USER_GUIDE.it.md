@@ -284,6 +284,11 @@ e duplicati, con motivazioni e dettagli RAW/DERIVED. Le pagine hanno 200 report:
 usa Pagina successiva o scarica il JSON. Raw/Entrambi disegna le pagine caricate,
 non l'intero archivio, e ripristina automaticamente le prime pagine all'accesso.
 
+Nella 1.1.18, **Info e legenda** raccoglie le spiegazioni facoltative, inizialmente
+chiuse. Apri un report per leggere motivazione e campi più grandi, impilati su mobile.
+La lista si scorre da sola; Prima, Avanti e download JSON restano accessibili.
+Torna alla mappa con il tasto di chiusura o Escape; il focus viene ripristinato.
+
 ![Archivio report Google](screenshots/18-google-reliable-reports.jpg)
 
 I parametri amministratore sono in **Setup → Connessioni provider → account
@@ -303,7 +308,7 @@ Per valori predefiniti, limiti, paginazione API e migrazione, leggi
 ## 13. Aggiornamenti e diagnosi
 
 Aggiorna dallo store oppure scarica le immagini Compose versionate e ricrea i
-servizi mantenendo i volumi. `1.1.17` è riproducibile; `latest` segue l'ultima
+servizi mantenendo i volumi. `1.1.18` è riproducibile; `latest` segue l'ultima
 release. Versione store, tag immagini e manifest delle architetture devono
 coincidere. Non reinstallare/cancellare i dati per una cache dello store obsoleta.
 Esegui backup prima di modificare l'installazione.

@@ -19,7 +19,12 @@ existing finding networks; it does not replace them or guarantee real-time GPS.
 [Guida illustrata italiana](docs/USER_GUIDE.it.md) ·
 [Complete feature gallery](docs/screenshots/README.md).
 
-## Current release: 1.1.17
+## Current release: 1.1.18
+
+The Google report archive now has larger readable fields, stacked mobile values
+and compact optional help/legend. Report navigation and export remain accessible;
+all raw data and derived explanations are retained. The gallery includes the new
+mobile layout. [Release notes](docs/RELEASE_1.1.18.md).
 
 Stable Google reliable locations above immutable raw reports, with clustering,
 consensus, anti-teleport candidates, confidence and STALE status. Choose Optimized,
@@ -146,9 +151,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.17`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.17`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.17`
+- `ghcr.io/mattboxx/find-my-web:1.1.18`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.18`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.18`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
