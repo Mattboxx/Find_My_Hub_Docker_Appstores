@@ -1,0 +1,3 @@
+ghcr.io/mattboxx/find-my-apple-provider:1.1.18 sha256:af5da32335efa171e014999dd3dcb68ece2009d4f7db6cffc7ce473ca5710ff3
+ghcr.io/mattboxx/find-my-google-provider:1.1.18 sha256:1714af31319bdc5e33ee59546d6319c4fb5c6e3975f645db3a168dae1d93db68
+ghcr.io/mattboxx/find-my-web:1.1.18 sha256:2212186dc89475dc9970f9f95dac646b9ab30709d4aa518b5d1b1f984652cfb1
