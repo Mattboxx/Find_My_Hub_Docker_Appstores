@@ -113,9 +113,9 @@ jobs:
         run: |
           set -euo pipefail
           for image in \
-            ghcr.io/mattboxx/find-my-web:1.1.16 \
-            ghcr.io/mattboxx/find-my-apple-provider:1.1.16 \
-            ghcr.io/mattboxx/find-my-google-provider:1.1.16
+            ghcr.io/mattboxx/find-my-web:1.1.17 \
+            ghcr.io/mattboxx/find-my-apple-provider:1.1.17 \
+            ghcr.io/mattboxx/find-my-google-provider:1.1.17
           do
             manifest="$RUNNER_TEMP/$(basename "${image%%:*}").json"
             docker manifest inspect "$image" > "$manifest"

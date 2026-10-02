@@ -19,7 +19,7 @@ existing finding networks; it does not replace them or guarantee real-time GPS.
 [Guida illustrata italiana](docs/USER_GUIDE.it.md) ·
 [Complete feature gallery](docs/screenshots/README.md).
 
-## Current release: 1.1.16
+## Current release: 1.1.17
 
 Stable Google reliable locations above immutable raw reports, with clustering,
 consensus, anti-teleport candidates, confidence and STALE status. Choose Optimized,
@@ -146,9 +146,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.16`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.16`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.16`
+- `ghcr.io/mattboxx/find-my-web:1.1.17`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.17`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.17`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
