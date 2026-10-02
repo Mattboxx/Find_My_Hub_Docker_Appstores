@@ -1,6 +1,6 @@
 # Feature gallery / Galleria delle funzioni
 
-Captured from Find My Hub 1.1.15 in an isolated Docker preview with synthetic
+Captured from Find My Hub 1.1.15 and the 1.1.16 feature preview in isolated Docker environments with synthetic
 devices, accounts, identities and locations. No real credentials or personal
 tracking data were used. Provider services in this demo are unconfigured;
 screenshots document controls, not a claim of live Apple/Google connectivity.
@@ -28,6 +28,8 @@ la [guida italiana](../USER_GUIDE.it.md) o [English guide](../USER_GUIDE.en.md).
 | Mobile history navigation / Storico da mobile | [15-mobile-history.jpg](15-mobile-history.jpg) |
 | Deliberate reordering / Riordino esplicito | [16-order.jpg](16-order.jpg) |
 | Deliberate identity rotation / Cambio identità protetto | [17-identity-rotation.jpg](17-identity-rotation.jpg) |
+| Google raw archive and reliable result / Report originali e affidabili | [18-google-reliable-reports.jpg](18-google-reliable-reports.jpg) |
+| Administrator reliability settings / Parametri amministratore | [19-google-analysis-settings.jpg](19-google-analysis-settings.jpg) |
 
 ![Map overview / Mappa](02-map.jpg)
 ![History period / Periodo storico](03-history-range.jpg)

@@ -268,10 +268,42 @@ specifici di scheda/trasporto spiegati nel flasher. Una compilazione o flash
 riusciti non certificano i pin di ogni revisione PCB. La verifica hardware del
 pulsante/LED Radioland è ancora pendente; questa release non cambia firmware.
 
+## Posizioni Google affidabili (1.1.16)
+
+I report Google sono avvistamenti, non automaticamente la posizione corrente.
+Find My Hub conserva ogni originale prima dei controlli e calcola una posizione
+affidabile separata, usando consenso, cluster e plausibilità del movimento. Un
+teleport isolato resta in attesa; uno spostamento confermato può sostituire
+l'ancora precedente. HIGH/MEDIUM/LOW e STALE descrivono il risultato elaborato,
+non ne garantiscono la correttezza. Comportamento Apple e chiavi non cambiano.
+
+In fondo al pannello dispositivi, apri **Dati Google · strumenti sviluppatore**
+per scegliere **Ottimizzati / Raw / Entrambi** o aprire **Report**. La sezione
+è inizialmente chiusa. L'archivio dei dispositivi originali comprende invalidi
+e duplicati, con motivazioni e dettagli RAW/DERIVED. Le pagine hanno 200 report:
+usa Pagina successiva o scarica il JSON. Raw/Entrambi disegna le pagine caricate,
+non l'intero archivio, e ripristina automaticamente le prime pagine all'accesso.
+
+![Archivio report Google](screenshots/18-google-reliable-reports.jpg)
+
+I parametri amministratore sono in **Setup → Connessioni provider → account
+Google → Parametri affidabilità Google**, non nella finestra Report. La soglia
+età raw marca gli avvistamenti più vecchi come archiviati senza eliminarli o
+nasconderli. Controlla lo spazio disco e conserva privatamente i backup:
+l'archivio append-only cresce. Lo storico Google normalizzato disponibile viene
+migrato automaticamente; dati scartati nelle vecchie versioni non sono recuperabili.
+
+Gli stati correnti MQTT/Home Assistant e l'integrazione Traccar del sito usano
+la posizione Google affidabile; i topic eventi mantengono gli avvistamenti.
+Per valori predefiniti, limiti, paginazione API e migrazione, leggi
+[Report originali e posizione affidabile](GOOGLE_RELIABLE_LOCATION.md).
+
+![Parametri amministratore](screenshots/19-google-analysis-settings.jpg)
+
 ## 13. Aggiornamenti e diagnosi
 
 Aggiorna dallo store oppure scarica le immagini Compose versionate e ricrea i
-servizi mantenendo i volumi. `1.1.15` è riproducibile; `latest` segue l'ultima
+servizi mantenendo i volumi. `1.1.16` è riproducibile; `latest` segue l'ultima
 release. Versione store, tag immagini e manifest delle architetture devono
 coincidere. Non reinstallare/cancellare i dati per una cache dello store obsoleta.
 Esegui backup prima di modificare l'installazione.
