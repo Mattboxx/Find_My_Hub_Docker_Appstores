@@ -270,10 +270,42 @@ nRF54L15 has its own board/transport limitations explained by the flasher. A
 successful compile/flash is not a guarantee of every board revision's pin mapping.
 Radioland LED/button hardware validation remains pending; 1.1.15 changes no firmware.
 
+## Google reliable locations (1.1.16)
+
+Google reports are observations, not automatically the current position.
+Find My Hub now archives every original Google report before validation and
+computes a separate reliable location using consensus, clustering and motion
+plausibility. An isolated teleport stays pending; confirmed relocation can
+replace an older anchor. HIGH/MEDIUM/LOW and STALE describe the derived result,
+not a guarantee that it is correct. Apple behavior and tracker keys do not change.
+
+Open **Google data · developer tools** at the bottom of the device panel to
+choose **Optimized / Raw / Both** or open **Reports**. The collapsed controls
+keep normal device operations prominent. The original-device archive includes
+invalid and duplicate reports, with reasons and RAW/DERIVED details. Pages are
+200 reports; use Next page or download JSON. Raw/Both draws loaded pages only,
+not the entire archive, and reloads first pages automatically after sign-in.
+
+![Google report archive](screenshots/18-google-reliable-reports.jpg)
+
+Administrator parameters are under **Setup → Provider connections → Google
+account → Google reliability parameters**, not in the Reports dialog. The raw
+age threshold marks older receipts as archived but never deletes or hides them.
+Monitor disk usage and keep backups private; the append-only archive grows.
+Available old normalized Google history migrates automatically, but fields or
+reports discarded by older versions cannot be reconstructed.
+
+MQTT/Home Assistant current states and the hub's optional Traccar exporter use
+the reliable Google location; normalized event topics still carry observations.
+For defaults, algorithm limits, API pagination and migration details, read
+[Google raw and reliable location](GOOGLE_RELIABLE_LOCATION.md).
+
+![Administrator reliability settings](screenshots/19-google-analysis-settings.jpg)
+
 ## 13. Update safely and troubleshoot by layer
 
 Use the store update or pull the versioned Compose images and recreate services,
-keeping existing data volumes. `1.1.15` is reproducible; `latest` follows the
+keeping existing data volumes. `1.1.16` is reproducible; `latest` follows the
 latest released image. The store version, image tags and every architecture
 manifest must agree. Do not reinstall/delete data simply because a store has an
 outdated cache. Take backups before changing your installation.
