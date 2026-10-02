@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.14
+    image: ghcr.io/mattboxx/find-my-web:1.1.15
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.14
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.15
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.14
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.15
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -101,7 +101,25 @@ x-casaos:
   author: Mattboxx
   developer: Mattboxx
   icon: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg
-  thumbnail: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg
+  thumbnail: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/02-map.jpg
+  screenshot_link:
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/02-map.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/03-history-range.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/04-unified-view.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/05-device-settings.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/06-identities.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/07-users.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/08-provider-setup.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/09-mqtt.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/10-traccar.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/11-backup.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/12-esp32-flasher.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/13-esp32-library.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/14-nrf-flasher.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/15-mobile-history.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/16-order.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/17-identity-rotation.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/01-login.jpg
   title:
     en_US: Find My Hub
     it_IT: Find My Hub
@@ -110,17 +128,37 @@ x-casaos:
     it_IT: Una sola mappa per i tracker Apple Find My e Google Find Hub.
   description:
     en_US: |
-      A self-hosted multi-user tracking hub for personal Apple Find My and
-      Google Find Hub compatible Bluetooth trackers. It combines both provider
-      histories, reversible multi-tracker unified views, device management,
-      MQTT/Home Assistant integration, and firmware tools in one responsive
-      web interface.
+      One self-hosted workspace for the Apple Find My and Google Find Hub
+      trackers you own: local location history, source comparison and isolated
+      user accounts. Latest/history maps with persistent 24-hour, 7/30-day and
+      custom date/time filters. Reversible views for two or more trackers,
+      retaining every original identity, history and settings.
+
+      Manage names, colors, hidden devices, order, owners and guarded key rotation.
+      Generate identities before choosing to add a device. Background polling,
+      optional MQTT/Home Assistant discovery and optional existing Traccar map.
+      Selective JSON export, full admin backups, ESP32/Nordic flashers, portable
+      downloads and optimized configured FindMyAdv library. Responsive EN/IT UI
+      with illustrated bilingual guides.
+
+      Unofficial integrations, not GPS or guaranteed live tracking. Sightings
+      depend on contributing phones and provider policies. Screenshots show
+      synthetic demonstration data, not personal locations.
     it_IT: |
-      Hub di tracciamento multiutente self-hosted per tracker Bluetooth
-      personali compatibili con Apple Find My e Google Find Hub. Riunisce
-      cronologia dei due provider, viste reversibili per due o più tracker,
-      gestione dispositivi, integrazione MQTT/Home Assistant e strumenti
-      firmware in un'unica interfaccia web responsive.
+      Un centro self-hosted per i tuoi tracker Apple Find My e Google Find Hub:
+      storico locale, confronto sorgenti e account separati. Mappa ultime/storico
+      con filtri persistenti 24 ore, 7/30 giorni e date/ore personalizzate.
+      Viste reversibili per due o più tracker senza fondere identità o cronologie.
+
+      Nomi, colori, nascosti, ordine, proprietari e cambio chiavi protetto.
+      Genera le identità prima di scegliere se creare un dispositivo.
+      Polling server, MQTT/Home Assistant e Traccar esistente opzionali.
+      Export JSON, backup admin completo, flasher ESP32/Nordic, download portatili
+      e libreria FindMyAdv configurata e ottimizzata. UI EN/IT e guide illustrate.
+
+      Integrazioni non ufficiali: non è GPS né tracking live garantito.
+      Gli avvistamenti dipendono dai telefoni contribuenti e dai provider.
+      Le immagini mostrano dati sintetici, non posizioni personali.
   tips:
     before_install:
       en_US: |
@@ -139,12 +177,12 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.14"
+  version: "1.1.15"
   update_at: "2026-10-01"
   release_notes:
-    en_US: "Fix older Apple trackers losing updates after adding another device: request each identity separately and isolate individual failures. Existing keys and history remain valid."
-    it_IT: "Corregge il mancato aggiornamento dei vecchi tracker Apple dopo nuove aggiunte: richieste separate per dispositivo ed errori isolati. Chiavi e cronologie esistenti restano valide."
+    en_US: "History time ranges with persistent presets/custom dates. Illustrated EN/IT guides and synthetic-data gallery. Existing keys, history and firmware stay unchanged."
+    it_IT: "Intervalli dello storico con preset persistenti/date personalizzate. Guide EN/IT e galleria con dati sintetici. Chiavi, storico e firmware restano invariati."
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
-  docs: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
+  docs: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/blob/main/docs/USER_GUIDE.en.md

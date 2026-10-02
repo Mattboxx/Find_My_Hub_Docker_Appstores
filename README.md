@@ -3,6 +3,51 @@
 Multi-platform Docker app-store repository for **Find My Hub**. It contains one
 portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 
+Find My Hub brings the Apple/Google trackers you own into one self-hosted map,
+preserves local history and lets separate accounts share a server. It combines
+existing finding networks; it does not replace them or guarantee real-time GPS.
+
+![Find My Hub — synthetic demonstration data](docs/screenshots/02-map.jpg)
+
+[English illustrated guide](docs/USER_GUIDE.en.md) ·
+[Guida illustrata italiana](docs/USER_GUIDE.it.md) ·
+[Complete feature gallery](docs/screenshots/README.md).
+
+## Current release: 1.1.15
+
+Persistent per-account history time ranges: all available, last 24 hours,
+7/30 days or custom local dates. Markers, paths and unified/member navigation
+share the filter; saved history, Latest mode and MQTT/Traccar remain unchanged.
+Includes illustrated bilingual guides and 17 reviewed synthetic-data screenshots.
+No firmware or provider logic changes; existing volumes and identities stay valid.
+
+## What you can do
+
+- Compare source-aware maps, navigate sightings, inspect timestamps/accuracy
+  and open external navigation apps.
+- Hide/show, color, rename and explicitly reorder devices on desktop/mobile.
+- Combine two or more same-account trackers reversibly, retaining every member's
+  full history and settings.
+- Generate identities before choosing to add a device, rotate keys with explicit
+  confirmation, and hand prefilled identities to firmware tools.
+- Share isolated accounts; admins assign owners and alone manage provider
+  connections, onboarding, infrastructure and user roles.
+- Poll with the browser closed; optionally publish MQTT/Home Assistant discovery
+  or forward entities to an existing Traccar Server.
+- Export selected devices or download a full administrator web-data backup;
+  preserve data on updates and migrate legacy installations.
+- Configure/flash Nordic and ESP32 boards or download portable ZIPs; integrate
+  the optimized configured FindMyAdv library into an existing ESP32 project.
+- Use persistent English/Italian UI, mobile history controls and home-screen icons.
+
+The web source repository stays **private**. This already-public catalog contains
+metadata, guides and synthetic images, not personal runtime data. Existing public
+container packages remain anonymously installable. Docker images contain app code:
+repository privacy is not encryption. Never publish provider authentication volumes
+or personalized firmware/backup ZIPs.
+
+## Previous release highlights
+
 Version **1.1.14** adds a complete administrator web-data backup with bilingual
 restore instructions, fixes imported device settings, and corrects optional
 Radioland accelerometer selection. It retains the Apple per-identity polling
@@ -92,9 +137,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.14`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.14`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.14`
+- `ghcr.io/mattboxx/find-my-web:1.1.15`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.15`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.15`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS

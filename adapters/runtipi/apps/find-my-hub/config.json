@@ -7,10 +7,10 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "find-my-hub",
-  "tipi_version": 4,
-  "version": "1.1.14",
+  "tipi_version": 5,
+  "version": "1.1.15",
   "categories": ["automation", "utilities"],
-  "description": "Self-hosted multi-user hub for Apple Find My and Google Find Hub trackers, with reversible multi-device unified views and MQTT.",
+  "description": "Self-hosted Apple/Google tracker map: time-filtered history, isolated accounts, reversible views, guarded key rotation, backups, optional MQTT/Traccar and firmware/library tools. Illustrated EN/IT guides; unofficial, not guaranteed live GPS tracking.",
   "short_desc": "Apple and Google tracker dashboard",
   "author": "Mattboxx",
   "source": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores",
@@ -18,6 +18,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1784239200000,
-  "updated_at": 1790553600000,
+  "updated_at": 1790812800000,
   "min_tipi_version": "4.8.0"
 }
