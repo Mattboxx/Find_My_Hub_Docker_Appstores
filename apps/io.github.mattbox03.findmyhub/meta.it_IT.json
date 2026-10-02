@@ -1,0 +1,10 @@
+{
+  "id": "io.github.mattbox03.findmyhub",
+  "title": "Find My Hub",
+  "description": "Un centro self-hosted per i tuoi tracker Apple Find My e Google Find Hub:\nstorico locale, confronto sorgenti e account separati. Mappa ultime/storico\ncon filtri persistenti 24 ore, 7/30 giorni e date/ore personalizzate.\nViste reversibili per due o più tracker senza fondere identità o cronologie.\n\nNomi, colori, nascosti, ordine, proprietari e cambio chiavi protetto.\nGenera le identità prima di scegliere se creare un dispositivo.\nPolling server, MQTT/Home Assistant e Traccar esistente opzionali.\nExport JSON, backup admin completo, flasher ESP32/Nordic, download portatili\ne libreria FindMyAdv configurata e ottimizzata. UI EN/IT e guide illustrate.\n\nLe posizioni Google affidabili usano consenso, cluster e analisi anti-teleport,\ncon confidence e STALE. I report originali restano in un archivio immutabile\npaginato, con viste Ottimizzati, Raw ed Entrambi. Parametri admin in Setup;\ncontrolli sviluppatore discreti in fondo al pannello.\n\nIntegrazioni non ufficiali: non è GPS né tracking live garantito.\nGli avvistamenti dipendono dai telefoni contribuenti e dai provider.\nLe immagini mostrano dati sintetici, non posizioni personali.\n",
+  "release_note": "Posizioni Google affidabili: consenso, anti-teleport, confidence e STALE, archivio raw immutabile e viste Ottimizzati/Raw/Entrambi. Parametri admin in Setup e strumenti sviluppatore in fondo. Stati correnti MQTT/Traccar affidabili. Chiavi e firmware invariati.",
+  "tagline": "Una sola mappa per i tracker Apple Find My e Google Find Hub.",
+  "tips": {
+    "before_install": "Questa applicazione usa integrazioni non ufficiali ottenute tramite\nreverse engineering e non è affiliata con Apple o Google. Usa account\ndedicati e soltanto tracker di tua proprietà. Apple richiede la 2FA via\nSMS; Google richiede un secrets.json generato con il login desktop del\nprogetto upstream. I token API locali sono facoltativi e configurabili\ndalle impostazioni dell'app.\n"
+  }
+}
