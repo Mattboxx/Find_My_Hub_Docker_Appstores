@@ -19,13 +19,16 @@ existing finding networks; it does not replace them or guarantee real-time GPS.
 [Guida illustrata italiana](docs/USER_GUIDE.it.md) ·
 [Complete feature gallery](docs/screenshots/README.md).
 
-## Current release: 1.1.15
+## Current release: 1.1.16
 
-Persistent per-account history time ranges: all available, last 24 hours,
-7/30 days or custom local dates. Markers, paths and unified/member navigation
-share the filter; saved history, Latest mode and MQTT/Traccar remain unchanged.
-Includes illustrated bilingual guides and 17 reviewed synthetic-data screenshots.
-No firmware or provider logic changes; existing volumes and identities stay valid.
+Stable Google reliable locations above immutable raw reports, with clustering,
+consensus, anti-teleport candidates, confidence and STALE status. Choose Optimized,
+Raw or Both; consult the complete paginated archive. Developer controls sit at
+the bottom of the device panel and global parameters belong to administrator Setup.
+MQTT/Traccar current states use the reliable Google anchor. Existing accounts,
+volumes, keys, Apple behavior and firmware remain valid and unchanged.
+Includes illustrated bilingual guides and 19 reviewed synthetic-data screenshots.
+[Algorithm, defaults, API and migration guide](docs/GOOGLE_RELIABLE_LOCATION.md).
 
 ## What you can do
 
@@ -143,9 +146,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.15`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.15`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.15`
+- `ghcr.io/mattboxx/find-my-web:1.1.16`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.16`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.16`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS

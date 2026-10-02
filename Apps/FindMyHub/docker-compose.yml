@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.15
+    image: ghcr.io/mattboxx/find-my-web:1.1.16
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.15
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.16
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.15
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.16
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -119,6 +119,8 @@ x-casaos:
     - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/15-mobile-history.jpg
     - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/16-order.jpg
     - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/17-identity-rotation.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/18-google-reliable-reports.jpg
+    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
     - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/01-login.jpg
   title:
     en_US: Find My Hub
@@ -141,6 +143,11 @@ x-casaos:
       downloads and optimized configured FindMyAdv library. Responsive EN/IT UI
       with illustrated bilingual guides.
 
+      Google reliable positions use consensus, clustering and anti-teleport
+      analysis, with confidence and STALE labels. Original reports remain in
+      an immutable paginated archive: Optimized, Raw and Both views are available.
+      Administrator parameters live in Setup; developer controls stay discreet.
+
       Unofficial integrations, not GPS or guaranteed live tracking. Sightings
       depend on contributing phones and provider policies. Screenshots show
       synthetic demonstration data, not personal locations.
@@ -155,6 +162,11 @@ x-casaos:
       Polling server, MQTT/Home Assistant e Traccar esistente opzionali.
       Export JSON, backup admin completo, flasher ESP32/Nordic, download portatili
       e libreria FindMyAdv configurata e ottimizzata. UI EN/IT e guide illustrate.
+
+      Le posizioni Google affidabili usano consenso, cluster e analisi anti-teleport,
+      con confidence e STALE. I report originali restano in un archivio immutabile
+      paginato, con viste Ottimizzati, Raw ed Entrambi. Parametri admin in Setup;
+      controlli sviluppatore discreti in fondo al pannello.
 
       Integrazioni non ufficiali: non è GPS né tracking live garantito.
       Gli avvistamenti dipendono dai telefoni contribuenti e dai provider.
@@ -177,11 +189,11 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.15"
-  update_at: "2026-10-01"
+  version: "1.1.16"
+  update_at: "2026-10-02"
   release_notes:
-    en_US: "History time ranges with persistent presets/custom dates. Illustrated EN/IT guides and synthetic-data gallery. Existing keys, history and firmware stay unchanged."
-    it_IT: "Intervalli dello storico con preset persistenti/date personalizzate. Guide EN/IT e galleria con dati sintetici. Chiavi, storico e firmware restano invariati."
+    en_US: "Reliable Google locations: consensus, anti-teleport, confidence and STALE, with an immutable raw archive and Optimized/Raw/Both views. Admin parameters in Setup; developer tools at the bottom. MQTT/Traccar current states use reliable locations. Keys and firmware unchanged."
+    it_IT: "Posizioni Google affidabili: consenso, anti-teleport, confidence e STALE, archivio raw immutabile e viste Ottimizzati/Raw/Entrambi. Parametri admin in Setup e strumenti sviluppatore in fondo. Stati correnti MQTT/Traccar affidabili. Chiavi e firmware invariati."
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
