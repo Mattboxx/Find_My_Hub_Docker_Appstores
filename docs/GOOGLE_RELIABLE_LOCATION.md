@@ -16,12 +16,14 @@ La sezione è inizialmente chiusa per lasciare spazio ai dispositivi.
 
 - Ottimizzati: usa i punti elaborati Google; Apple mantiene il comportamento
   precedente. Una posizione vecchia non viene rimpiazzata da un outlier recente.
-- Raw: apre l'archivio originale del dispositivo; sulla mappa vengono disegnati
+- Raw: sulla mappa vengono disegnati
   i report geograficamente validi della pagina selezionata.
 - Entrambi: sovrappone la pagina raw alla posizione/storia affidabile.
 
 **Report** apre sempre l'archivio, anche in modalità Ottimizzati. Seleziona un
-dispositivo originale, inclusi i membri di viste unificate. L'archivio non
+dispositivo originale, inclusi i membri di viste unificate e i dispositivi
+che conservano report Google dopo la rimozione della configurazione Google.
+La rimozione della configurazione non nasconde lo storico. L'archivio non
 applica filtri di periodo, fonte o plausibilità della mappa. La paginazione
 (200 report per pagina, Pagina successiva e download JSON) permette di
 consultare tutto senza caricare anni di dati sul cellulare. Raw/Both mostrano
@@ -33,6 +35,10 @@ Report semantici, nulli, senza coordinate, con accuracy/timestamp invalidi
 rimangono elencati anche se non sono disegnabili.
 
 Espandi un report per confrontare **RAW / GoogleFindMyTools** e **DERIVED**.
+Il selettore cambia solo la mappa; la finestra si apre con il pulsante **Report**.
+Stati, motivazioni e campi elaborati sono tradotti nella lingua scelta.
+Il JSON originale e quello tecnico dell'analisi conservano i nomi dei campi,
+per non alterare i dati e permettere il confronto con le API.
 Le annotazioni cambiano quando arrivano conferme; il payload originale no.
 Legenda mappa: quadrato marcato = affidabile; verde = accettato; arancio =
 pending; rosso = outlier/scartato; viola = duplicato; grigio = invalido.
@@ -149,8 +155,13 @@ cryptography, EID renewal or their raw /location contract.
 
 **Google data → Optimized / Raw / Both** selects the map presentation.
 Open **Google data · developer tools** at the bottom of the device panel.
+Changing the mode updates only the map; use **Reports** to open the archive.
+Statuses, reasons and derived-field labels follow the selected language.
+Original and technical-analysis JSON keep their original field names.
 This section is collapsed by default. **Reports** opens the complete, unfiltered original-device archive, including
-unified-view members. Pages contain 200 reports, with Next page and JSON download.
+unified-view members and devices whose Google configuration was removed but
+whose reports remain stored. Removing configuration does not hide the archive.
+Pages contain 200 reports, with Next page and JSON download.
 Raw/Both map markers show the selected archive page; unplottable reports remain
 in the list. Expand any report to compare RAW and DERIVED. Bold squares represent
 optimized locations; green accepted, amber pending, red outlier/rejected,

@@ -305,7 +305,7 @@ For defaults, algorithm limits, API pagination and migration details, read
 ## 13. Update safely and troubleshoot by layer
 
 Use the store update or pull the versioned Compose images and recreate services,
-keeping existing data volumes. `1.1.16` is reproducible; `latest` follows the
+keeping existing data volumes. `1.1.17` is reproducible; `latest` follows the
 latest released image. The store version, image tags and every architecture
 manifest must agree. Do not reinstall/delete data simply because a store has an
 outdated cache. Take backups before changing your installation.
