@@ -1,5 +1,11 @@
 # Find My Hub Docker App Stores
 
+Catalog installation resources use immutable `catalog-X.Y.Z` snapshots to
+prevent a cached Compose file from being mixed with newer app metadata. The
+subscription URL remains `@gh-pages/store.json`; metadata/Compose changes
+intended for installation require a new app version. CDN index propagation
+can still take time, but each newly indexed release references its own files.
+
 Multi-platform Docker app-store repository for **Find My Hub**. It contains one
 portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 
