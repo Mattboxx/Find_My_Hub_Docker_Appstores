@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.18
+    image: ghcr.io/mattboxx/find-my-web:1.1.19
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.18
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.19
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.18
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.19
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -189,11 +189,11 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.18"
-  update_at: "2026-10-02"
+  version: "1.1.19"
+  update_at: "2026-10-08"
   release_notes:
-    en_US: "Google Reports UI: larger readable fields, stacked mobile values, optional help/legend and accessible navigation/export controls. All raw and reliable data retained. EN/IT guides and screenshot updated. Keys, firmware, providers and location algorithm unchanged."
-    it_IT: "Report Google più leggibili: campi grandi, valori impilati su mobile, info/legenda richiudibili e comandi di navigazione/export accessibili. Dati raw e affidabili conservati. Guide EN/IT e schermata aggiornate. Chiavi, firmware, provider e algoritmo invariati."
+    en_US: "Compact Google Reports with safer device/page switching: clear stale data, disable export while loading, ignore late replies and offer Retry on errors. EN/IT guides and gallery synchronized. Keys, firmware, providers and location algorithm unchanged."
+    it_IT: "Report Google compatti e cambio dispositivo/pagina sicuro: dati precedenti rimossi durante il caricamento, export disabilitato, risposte obsolete ignorate e pulsante Riprova. Guide EN/IT e galleria sincronizzate. Chiavi, firmware, provider e algoritmo invariati."
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues

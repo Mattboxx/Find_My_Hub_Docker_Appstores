@@ -25,6 +25,9 @@ del dispositivo resta sempre accessibile. **Info e legenda** raccoglie le spiega
 inizialmente chiuse: l'elenco usa lo spazio rimanente e si scorre indipendentemente.
 Apri un report per leggere motivazione e campi elaborati, impilati su mobile.
 I comandi Prima, Avanti e download JSON rimangono accessibili in fondo.
+Durante il caricamento di un altro dispositivo o pagina, il contenuto precedente
+viene rimosso e i comandi sono disabilitati: non è possibile scaricare per errore
+i report del dispositivo precedente. Se il caricamento fallisce, usa **Riprova**.
 Seleziona un dispositivo originale, inclusi i membri di viste unificate e i dispositivi
 che conservano report Google dopo la rimozione della configurazione Google.
 La rimozione della configurazione non nasconde lo storico. L'archivio non
@@ -164,6 +167,9 @@ Help and legend are collapsed under **Info and legend**; the report list fills
 the remaining dialog space and scrolls independently. Expanded reports show
 reasons and readable derived fields, stacked on mobile. First, Next and JSON
 download controls remain available at the bottom.
+While another device or page loads, previous content is cleared and controls
+are disabled so you cannot accidentally export the previous device's reports.
+If loading fails, use **Retry**.
 Statuses, reasons and derived-field labels follow the selected language.
 Original and technical-analysis JSON keep their original field names.
 This section is collapsed by default. **Reports** opens the complete, unfiltered original-device archive, including
