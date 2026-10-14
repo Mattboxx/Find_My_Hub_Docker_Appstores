@@ -16,6 +16,8 @@ Create an empty installation folder and download this public Compose recipe:
 ```sh
 mkdir find-my-hub && cd find-my-hub
 curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.21/all-in-one/compose.yaml -o compose.yaml
+mkdir -p data/anisette
+sudo chown 1000:1000 data/anisette
 docker compose up -d
 ```
 
@@ -23,6 +25,14 @@ Open `http://SERVER_IP:8125`, create the administrator and use **Setup**.
 Apple authentication/2FA and the upstream Google login/secrets flow remain
 required. Only the web port is published; Anisette and provider ports stay
 internal. Initial upstream provisioning requires Internet access.
+
+The directory preparation above is for a fresh Linux bind mount: the pinned
+upstream Anisette image runs as UID 1000. It changes ownership of that directory
+only, never recursively of web/provider data. If you set a custom
+`APP_DATA_DIR`, prepare its `anisette` subdirectory instead. For existing data
+stop the old stack and back up first; keep existing file ownership intact.
+Docker Desktop on Windows uses different bind-mount permission mapping and does
+not use the Linux `sudo chown` command.
 
 By default persistent data is stored in `./data` beside your Compose file.
 Optional values can be placed in an installation-local `.env`:
