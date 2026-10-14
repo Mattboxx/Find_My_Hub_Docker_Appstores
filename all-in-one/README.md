@@ -15,7 +15,9 @@ Create an empty installation folder and download this public Compose recipe:
 
 ```sh
 mkdir find-my-hub && cd find-my-hub
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.20/all-in-one/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.21/all-in-one/compose.yaml -o compose.yaml
+mkdir -p data/anisette
+sudo chown 1000:1000 data/anisette
 docker compose up -d
 ```
 
@@ -24,6 +26,14 @@ Apple authentication/2FA and the upstream Google login/secrets flow remain
 required. Only the web port is published; Anisette and provider ports stay
 internal. Initial upstream provisioning requires Internet access.
 
+The directory preparation above is for a fresh Linux bind mount: the pinned
+upstream Anisette image runs as UID 1000. It changes ownership of that directory
+only, never recursively of web/provider data. If you set a custom
+`APP_DATA_DIR`, prepare its `anisette` subdirectory instead. For existing data
+stop the old stack and back up first; keep existing file ownership intact.
+Docker Desktop on Windows uses different bind-mount permission mapping and does
+not use the Linux `sudo chown` command.
+
 By default persistent data is stored in `./data` beside your Compose file.
 Optional values can be placed in an installation-local `.env`:
 
@@ -31,7 +41,7 @@ Optional values can be placed in an installation-local `.env`:
 | --- | --- | --- |
 | `WEB_PORT` | `8125` | Published web port |
 | `APP_DATA_DIR` | `./data` | Host data root |
-| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/find-my-hub:1.1.20` | Pinned bundle image |
+| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/find-my-hub:1.1.21` | Pinned bundle image |
 | `APPLE_SETUP_TOKEN` | empty | Optional internal Apple setup token |
 | `GOOGLE_TOKEN` | empty | Optional internal Google API/setup token |
 
@@ -124,7 +134,7 @@ docker compose -f deploy/all-in-one/compose.yaml -f deploy/all-in-one/compose.bu
 ```
 
 Set `FINDMY_PROVIDER_TAG` if you need a different existing provider release;
-its default is `1.1.20`. This builds the bundle locally, not Anisette.
+its default is `1.1.21`. This builds the bundle locally, not Anisette.
 
 ## Italiano
 
@@ -136,7 +146,7 @@ poi `http://IP_SERVER:8125` e completa la configurazione dei tuoi account.
 Non serve modificare un'installazione funzionante: lo stack separato resta
 disponibile. Se migri, ferma prima lo stack originale, salva tutte e cinque le
 cartelle dati e imposta `APP_DATA_DIR` al percorso verificato. Non avviare mai
-due versioni sullo stesso archivio. Usa il tag `1.1.20` per una versione fissa,
+due versioni sullo stesso archivio. Usa il tag `1.1.21` per una versione fissa,
 oppure `stable`/`latest` per seguire le release stabili. Le chiavi, il firmware
 e lo storico non vengono rigenerati; autenticazione Apple/Google e 2FA rimangono
 necessarie.
