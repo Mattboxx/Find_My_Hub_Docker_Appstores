@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "id": "io.github.mattbox03.findmyhub",
+      "title": "Find My Hub",
+      "tagline": "Una sola mappa per i tracker Apple Find My e Google Find Hub."
+    }
+  ]
+}
