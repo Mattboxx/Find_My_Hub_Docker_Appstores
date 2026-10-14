@@ -51,10 +51,16 @@ the interface beyond localhost or your trusted network.
 
 ![Sign-in screen](screenshots/01-login.jpg)
 
-The top language selector switches English/Italian and remembers the choice.
+The language selector offers English, Italian, Spanish, French, Russian and
+Simplified Chinese and remembers the choice across browser sessions.
 On mobile, the notepad button opens the device sheet; its handle expands it and
 the chevron closes it. Selecting a device keeps its marker in the visible map
 area above the controls. Location permission for **Show my position** is optional.
+
+At the bottom of the panel, a discreet **Support on Ko-fi** link opens the
+donation page directly if you wish to support the project. It is optional and
+never changes access to features. See [language details](LOCALIZATION.md).
+The existing separate-container installation remains supported.
 
 ## 2. Connect Apple and Google (administrator)
 
@@ -312,7 +318,7 @@ For defaults, algorithm limits, API pagination and migration details, read
 ## 13. Update safely and troubleshoot by layer
 
 Use the store update or pull the versioned Compose images and recreate services,
-keeping existing data volumes. `1.1.19` is reproducible; `latest` follows the
+keeping existing data volumes. `1.1.20` is reproducible; `latest` follows the
 latest released image. The store version, image tags and every architecture
 manifest must agree. Do not reinstall/delete data simply because a store has an
 outdated cache. Take backups before changing your installation.

@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.19
+    image: ghcr.io/mattboxx/find-my-web:1.1.20
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.19
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.20
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.19
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.20
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -140,7 +140,7 @@ x-casaos:
       Generate identities before choosing to add a device. Background polling,
       optional MQTT/Home Assistant discovery and optional existing Traccar map.
       Selective JSON export, full admin backups, ESP32/Nordic flashers, portable
-      downloads and optimized configured FindMyAdv library. Responsive EN/IT UI
+      downloads and optimized configured FindMyAdv library. Responsive six-language UI
       with illustrated bilingual guides.
 
       Google reliable positions use consensus, clustering and anti-teleport
@@ -161,7 +161,7 @@ x-casaos:
       Genera le identità prima di scegliere se creare un dispositivo.
       Polling server, MQTT/Home Assistant e Traccar esistente opzionali.
       Export JSON, backup admin completo, flasher ESP32/Nordic, download portatili
-      e libreria FindMyAdv configurata e ottimizzata. UI EN/IT e guide illustrate.
+      e libreria FindMyAdv configurata e ottimizzata. UI in sei lingue e guide EN/IT.
 
       Le posizioni Google affidabili usano consenso, cluster e analisi anti-teleport,
       con confidence e STALE. I report originali restano in un archivio immutabile
@@ -189,11 +189,11 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.19"
-  update_at: "2026-10-08"
+  version: "1.1.20"
+  update_at: "2026-10-14"
   release_notes:
-    en_US: "Compact Google Reports with safer device/page switching: clear stale data, disable export while loading, ignore late replies and offer Retry on errors. EN/IT guides and gallery synchronized. Keys, firmware, providers and location algorithm unchanged."
-    it_IT: "Report Google compatti e cambio dispositivo/pagina sicuro: dati precedenti rimossi durante il caricamento, export disabilitato, risposte obsolete ignorate e pulsante Riprova. Guide EN/IT e galleria sincronizzate. Chiavi, firmware, provider e algoritmo invariati."
+    en_US: "Six persistent UI languages, localized dates and optional Ko-fi support. Separate stack retained; optional stable web/Apple/Google bundle with external upstream Anisette is documented in the catalog. No firmware, keys or location-algorithm changes."
+    it_IT: "Sei lingue persistenti, date localizzate e sostegno Ko-fi facoltativo. Stack separato invariato; variante stabile web/Apple/Google con Anisette esterno documentata nel catalogo. Nessuna modifica a firmware, chiavi o algoritmo posizioni."
   website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
   support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
