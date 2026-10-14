@@ -1,0 +1,22 @@
+name: find-my-hub-all-in-one
+services:
+  hub:
+    image: ${FINDMY_AIO_IMAGE:-ghcr.io/mattboxx/find-my-hub:1.1.20}
+    restart: unless-stopped
+    stop_grace_period: 90s
+    ports:
+      - "${WEB_PORT:-8125}:8000"
+    environment:
+      APPLE_SETUP_TOKEN: ${APPLE_SETUP_TOKEN:-}
+      GOOGLE_TOKEN: ${GOOGLE_TOKEN:-}
+    extra_hosts:
+      - "apple-provider:127.0.0.1"
+      - "google-provider:127.0.0.1"
+    volumes:
+      - "${APP_DATA_DIR:-./data}:/data"
+  # Original upstream image, not copied into or redistributed inside our image.
+  anisette:
+    image: dadoum/anisette-v3-server@sha256:1e20384985d3c49965f444bef39d627768dacc39ea0dca91f2a535edb7591ba3
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-./data}/anisette:/home/Alcoholic/.config/anisette-v3"

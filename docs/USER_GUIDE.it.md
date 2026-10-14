@@ -53,10 +53,16 @@ su una LAN/VPN fidata. Usa HTTPS per accessi fuori da localhost/rete fidata.
 
 ![Accesso](screenshots/01-login.jpg)
 
-Il selettore EN/IT conserva la lingua nel browser. Da mobile il blocco note apre
+Il selettore offre inglese, italiano, spagnolo, francese, russo e cinese
+semplificato e conserva la scelta nel browser tra sessioni. Da mobile il blocco note apre
 la lista, la maniglia permette di espanderla e la freccia di richiuderla. Il
 centraggio mantiene il punto nella mappa visibile sopra i controlli. Il permesso
 di geolocalizzazione per **Mostra la mia posizione** è facoltativo.
+
+In fondo al pannello un piccolo collegamento **Sostieni su Ko-fi** apre subito
+la pagina per una donazione facoltativa, senza promemoria e senza limitare le
+funzioni. Vedi i [dettagli sulle lingue](LOCALIZATION.md). Lo stack separato resta
+supportato.
 
 ## 2. Collegare i provider — solo amministratore
 
@@ -311,7 +317,7 @@ Per valori predefiniti, limiti, paginazione API e migrazione, leggi
 ## 13. Aggiornamenti e diagnosi
 
 Aggiorna dallo store oppure scarica le immagini Compose versionate e ricrea i
-servizi mantenendo i volumi. `1.1.19` è riproducibile; `latest` segue l'ultima
+servizi mantenendo i volumi. `1.1.20` è riproducibile; `latest` segue l'ultima
 release. Versione store, tag immagini e manifest delle architetture devono
 coincidere. Non reinstallare/cancellare i dati per una cache dello store obsoleta.
 Esegui backup prima di modificare l'installazione.

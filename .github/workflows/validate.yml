@@ -49,6 +49,7 @@ jobs:
           APP_DATA_DIR: /tmp/find-my-hub
         run: |
           docker compose -f compose.yaml config --quiet
+          docker compose -f all-in-one/compose.yaml config --quiet
           docker compose -f Apps/FindMyHub/docker-compose.yml config --quiet
           docker compose -f adapters/umbrel/find-my-hub/docker-compose.yml config --quiet
           docker compose -f adapters/runtipi/apps/find-my-hub/docker-compose.yml config --quiet
@@ -113,9 +114,9 @@ jobs:
         run: |
           set -euo pipefail
           for image in \
-            ghcr.io/mattboxx/find-my-web:1.1.19 \
-            ghcr.io/mattboxx/find-my-apple-provider:1.1.19 \
-            ghcr.io/mattboxx/find-my-google-provider:1.1.19
+            ghcr.io/mattboxx/find-my-web:1.1.20 \
+            ghcr.io/mattboxx/find-my-apple-provider:1.1.20 \
+            ghcr.io/mattboxx/find-my-google-provider:1.1.20
           do
             manifest="$RUNNER_TEMP/$(basename "${image%%:*}").json"
             docker manifest inspect "$image" > "$manifest"
