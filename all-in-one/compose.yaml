@@ -1,7 +1,7 @@
 name: find-my-hub-all-in-one
 services:
   hub:
-    image: ${FINDMY_AIO_IMAGE:-ghcr.io/mattboxx/find-my-hub:1.1.20}
+    image: ${FINDMY_AIO_IMAGE:-ghcr.io/mattboxx/find-my-hub:1.1.21}
     restart: unless-stopped
     stop_grace_period: 90s
     ports:

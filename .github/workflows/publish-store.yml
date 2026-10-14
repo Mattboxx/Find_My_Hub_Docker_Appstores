@@ -34,7 +34,7 @@ jobs:
         with:
           source: .
           output: dist
-          base-url: https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@catalog-${{ steps.version.outputs.version }}
+          base-url: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/catalog-${{ steps.version.outputs.version }}
           cache-file: .cache/build_appstore/image-size-cache.json
           digest-cache-file: .cache/build_appstore/image-digest-cache.json
           report-json: out/build-v2-report.json
@@ -113,7 +113,7 @@ jobs:
               >/dev/null
           done
 
-      - name: Verify immutable CDN resources expose the published app version
+      - name: Verify immutable GitHub resources expose the published app version
         shell: bash
         run: |
           set -euo pipefail
@@ -124,8 +124,8 @@ jobs:
             mkdir -p cdn-verify
             verification_ok=true
 
-            if ! published_version="$(curl --fail --silent --show-error \
-              "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/meta.json" \
+            if ! published_version="$(curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
+              "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/meta.json" \
               | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')"; then
               verification_ok=false
               published_version="unavailable"
@@ -136,8 +136,8 @@ jobs:
             for compose_name in docker-compose.yml docker-compose.amd64.yml docker-compose.arm64.yml
             do
               compose_file="cdn-verify/${compose_name}"
-              if ! curl --fail --silent --show-error \
-                "https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/${compose_name}" \
+              if ! curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
+                "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/${compose_name}" \
                 --output "$compose_file"; then
                 verification_ok=false
                 continue
@@ -148,11 +148,11 @@ jobs:
             done
 
             if [ "$verification_ok" = true ]; then
-              echo "CDN exposes Find My Hub ${published_version} in metadata and every Compose variant"
+              echo "GitHub exposes Find My Hub ${published_version} in metadata and every Compose variant"
               exit 0
             fi
-            echo "CDN payload is not consistently at ${expected_version} (metadata: ${published_version}); retrying"
+            echo "GitHub payload is not consistently at ${expected_version} (metadata: ${published_version}); retrying"
             sleep $((attempt * 5))
           done
-          echo "CDN did not expose a consistent Find My Hub ${expected_version} payload after refresh" >&2
+          echo "GitHub did not expose a consistent Find My Hub ${expected_version} payload after refresh" >&2
           exit 1

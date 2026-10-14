@@ -1,5 +1,9 @@
 # Find My Hub 1.1.20
 
+> Bundle note / Nota bundle: the initial bundled image failed the final clean
+> startup test without a mounted data directory. Use 1.1.21 for that variant.
+> The separate 1.1.20 web/Apple/Google stack passed validation and is unaffected.
+
 ## Italiano
 
 - Interfaccia in inglese, italiano, spagnolo, francese, russo e cinese

@@ -6,6 +6,10 @@ subscription URL remains `@gh-pages/store.json`; metadata/Compose changes
 intended for installation require a new app version. CDN index propagation
 can still take time, but each newly indexed release references its own files.
 
+From 1.1.21, immutable installation resources are served directly from the
+GitHub raw tag, avoiding intermittent CDN 503 responses for Compose files.
+The subscription URL remains unchanged; there is no need to reinstall the app.
+
 Multi-platform Docker app-store repository for **Find My Hub**. It contains one
 portable Compose stack plus store-specific adapters; it is not tied to ZimaOS.
 
@@ -19,14 +23,14 @@ existing finding networks; it does not replace them or guarantee real-time GPS.
 [Guida illustrata italiana](docs/USER_GUIDE.it.md) ·
 [Complete feature gallery](docs/screenshots/README.md).
 
-## Current release: 1.1.20
+## Current release: 1.1.21
 
 Six persistent interface languages (EN/IT/ES/FR/RU/Simplified Chinese), localized
 dates and a discreet optional Ko-fi support link. The original separate stack
 is retained. A new [stable bundled image](all-in-one/README.md) runs web, Apple
 and Google, with upstream Anisette separate: two containers, one install command.
 No automatic migration, firmware change or key regeneration.
-[Release notes](docs/RELEASE_1.1.20.md).
+[Release notes](docs/RELEASE_1.1.21.md).
 
 Stable Google reliable locations above immutable raw reports, with clustering,
 consensus, anti-teleport candidates, confidence and STALE status. Choose Optimized,
@@ -153,9 +157,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.20`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.20`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.20`
+- `ghcr.io/mattboxx/find-my-web:1.1.21`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.21`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.21`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
