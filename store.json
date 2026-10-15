@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "store_id": "find-my-hub-docker-catalog",
+  "name": "Apple + Google Tracking Server",
+  "description": "Legacy four-container catalog for existing installations. Use All-in-One (two containers) for a new setup. Tracking, firmware and configured ESP32 libraries.",
+  "maintainer": "Mattboxx",
+  "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores"
+}
