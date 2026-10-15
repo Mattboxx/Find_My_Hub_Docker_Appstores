@@ -76,6 +76,10 @@ infrastructure. Use addresses reachable **from the web container**: Compose
 service names work only on a shared Docker network; `localhost` means that
 container, not your NAS. A published LAN address/port is an alternative.
 
+**Apple account prerequisite:** Before signing in, use an Apple Account that has been registered on an Apple device at least once and has iCloud activated (the free 5 GB plan is enough). You can remove the device from the account afterwards.
+
+**Google account prerequisite:** Use a Google account with at least one device already registered on the Google Find Hub network. For broader coverage, select the maximum network participation setting on the Android device ("With network in all areas", or the equivalent label).
+
 ![Provider setup and onboarding](screenshots/08-provider-setup.jpg)
 
 - Apple reports: macless-haystack HTTP endpoint, normally port `6176`.

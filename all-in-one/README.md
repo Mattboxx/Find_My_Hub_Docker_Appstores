@@ -25,6 +25,14 @@ The original separate-provider stack and standard external providers remain
 supported. No installation is migrated automatically. Firmware, identities and
 stored histories are not changed by choosing this deployment layout.
 
+**Apple account:** first register the account on an Apple device and activate
+iCloud (the free **5 GB** plan is enough). You can then remove that device
+from the account; it does not need to stay registered.
+
+**Google account:** at least one device must already be registered on Google
+Find Hub. Maximum network coverage ("With network in all areas", or its
+equivalent) is recommended.
+
 ## Install on a server
 
 Create an empty installation folder and download this public Compose recipe:

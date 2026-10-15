@@ -7,6 +7,33 @@ four-container modular stack is **legacy**, retained for existing deployments
 and the current native-store entry. Both offer the same web features; changing
 layout requires an explicit migration.
 
+## Apple account prerequisite
+
+Before authenticating the Apple provider, use an **Apple Account (Apple ID)
+that has been registered on an Apple device at least once**, with **iCloud
+activated**. The **free 5 GB iCloud plan is sufficient**; a paid storage plan
+is not required. Creating a new account without initializing iCloud on a device
+does not complete this prerequisite.
+
+After that initial iCloud activation, **you can remove the Apple device from
+the account**. It does not need to remain registered or connected to this server.
+Keep access to the account and its two-factor authentication method for provider
+sign-in. This is separate from creating the local web administrator or flashing
+a tracker. It applies to both deployment layouts and standard Apple providers.
+
+## Google account prerequisite
+
+Use a **Google account with at least one device already registered on the
+Google Find Hub network** before configuring the Google provider. A fresh
+account that has not joined the finding network does not complete this setup.
+
+For broader network coverage, open the participating Android device's offline
+finding settings and choose **"With network in all areas"**, or the equivalent
+maximum network participation option shown by that Android version. This is a
+recommended setting, separate from the requirement to have a registered device.
+Then follow the upstream Google login/secrets flow with that same account.
+The local web administrator is separate from the Google account.
+
 ## Option A — All-in-One: 2 containers (recommended)
 
 **Explicit image name: `ghcr.io/mattboxx/apple-google-tracking-server`.**
