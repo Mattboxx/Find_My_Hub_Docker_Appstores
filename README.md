@@ -101,12 +101,12 @@ Installing the containers does not automatically authenticate those accounts.
 
 | Layout | What runs | Total |
 | --- | --- | --- |
-| **Modular** | Separate web, Apple and Google services, plus Anisette | **4 containers** |
-| **All-in-One** | `apple-google-tracking-server` bundles web + Apple + Google; Anisette remains separate | **2 containers** |
+| **All-in-One (recommended)** | `apple-google-tracking-server` bundles web + Apple + Google; Anisette remains separate | **2 containers** |
+| **Modular (legacy)** | Separate web, Apple and Google services, plus Anisette | **4 containers** |
 
-Choose modular for native-store or existing installations. Choose All-in-One for
-a fresh server where you prefer fewer containers. Both offer the same web features.
-The native store app remains modular; it does not migrate automatically.
+Use **All-in-One for new installations**. The four-container modular stack is
+**legacy**, retained for existing deployments and the current native-store entry.
+Both offer the same web features; existing installations do not migrate automatically.
 
 ### All-in-One — fresh Linux server
 
@@ -122,9 +122,9 @@ Open **`http://SERVER_IP:8125`**, create the administrator and complete **Setup*
 The directory ownership step is for Linux only. For Windows Docker Desktop,
 custom paths, backups or migration, read the [All-in-One guide](https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/blob/main/all-in-one/README.md).
 
-### Modular stack or app store
+### Legacy modular stack or app store
 
-For a fresh Compose installation:
+For an existing modular deployment or an explicit legacy installation:
 
 ```sh
 mkdir tracking-modular && cd tracking-modular

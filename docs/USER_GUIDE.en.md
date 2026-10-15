@@ -36,10 +36,11 @@ then stores them locally. Closing the browser does not stop polling. Moving a
 map point, changing a filter or creating a unified view does not modify the
 physical tracker. Historical coordinates are sightings, not a continuous route.
 
-Choose the **modular stack** (web, Apple, Google and Anisette: **4 containers**),
-or **Apple + Google Tracking Server — All-in-One** (web + Apple + Google in
-`apple-google-tracking-server`, plus separate Anisette: **2 containers**).
-The native store app remains modular; it does not migrate automatically.
+For new installations, choose **Apple + Google Tracking Server — All-in-One**:
+web + Apple + Google in `apple-google-tracking-server`, plus separate Anisette
+(**2 containers**). The **legacy modular stack** runs web, Apple, Google and
+Anisette separately (**4 containers**) for existing deployments and the current
+native-store entry. Existing installations do not migrate automatically.
 Both offer the same web features. The old bundle name `find-my-hub` remains
 compatible. [Compare layouts and installation commands](../README.md).
 You can also run just the web engine connected to existing standard providers.
@@ -48,7 +49,8 @@ The Traccar-named Google sidecar is **not** the optional Traccar map server.
 
 ## 1. Install and sign in
 
-Use the catalog's Compose file or a supported store. Open `http://HOST:8125`,
+Use the recommended All-in-One recipe for a new server; existing native-store
+installations keep their legacy layout. Open `http://HOST:8125`,
 create the first administrator, then configure providers from **Setup**. The
 web interface requires sign-in; provider API tokens are separately optional.
 Keep unprotected provider ports inside a trusted LAN/VPN. Use HTTPS when exposing

@@ -5,14 +5,17 @@ three independently supervised processes. Anisette uses its original upstream
 image in a second container. Compose starts both with one command. This is
 deliberately **not a single container containing Anisette**.
 
+**Recommended for new installations.** The four-container modular layout is legacy.
+
 | Layout | Find My Hub containers | Anisette | Total |
 | --- | --- | --- | --- |
-| Modular / Modulare | Web + Apple + Google, each separate | 1 upstream container | **4** |
-| All-in-One | Web + Apple + Google inside one container | 1 upstream container | **2** |
+| Modular (legacy) | Web + Apple + Google, each separate | 1 upstream container | **4** |
+| All-in-One (recommended) | Web + Apple + Google inside one container | 1 upstream container | **2** |
 
 Both layouts provide the same interface and features. The native ZimaOS/CasaOS
-store app uses the modular layout; choosing All-in-One is a deliberate separate
-deployment, not an automatic store update. `find-my-web` is web only.
+entry still uses the legacy modular layout for existing installations. New
+installations should use All-in-One. Switching an existing deployment requires
+a deliberate migration; it is not an automatic store update. `find-my-web` is web only.
 
 The previous `ghcr.io/mattboxx/find-my-hub` name remains a compatibility alias.
 Existing configurations can keep it. New installations should use the explicit

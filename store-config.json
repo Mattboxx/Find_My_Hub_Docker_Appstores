@@ -6,8 +6,8 @@
     "it_IT": "Apple + Google Tracking Server"
   },
   "description": {
-    "en_US": "Install Apple + Google Tracking Server: tracking, identity and firmware generation, Nordic/ESP32 programming and configured ESP32 libraries. The app is Find My Hub.",
-    "it_IT": "Installa Apple + Google Tracking Server: tracciamento, generazione identità e firmware, programmazione Nordic/ESP32 e librerie ESP32 configurate. L’app si chiama Find My Hub."
+    "en_US": "Legacy four-container catalog for existing installations. Use All-in-One (two containers) for a new setup. Tracking, firmware and configured ESP32 libraries.",
+    "it_IT": "Catalogo legacy a quattro container per installazioni esistenti. Per nuove installazioni usa All-in-One (due container). Tracciamento, firmware e librerie ESP32."
   },
   "maintainer": "Mattboxx",
   "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores"

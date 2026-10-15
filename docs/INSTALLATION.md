@@ -2,33 +2,12 @@
 
 [Project overview](../README.md) · [Native stores](STORES.md) · [User guide](USER_GUIDE.en.md)
 
-Choose a layout once, then configure your accounts. Both layouts offer the same
-web features. Existing native-store installations remain modular.
+**All-in-One (two containers) is recommended for new installations.** The
+four-container modular stack is **legacy**, retained for existing deployments
+and the current native-store entry. Both offer the same web features; changing
+layout requires an explicit migration.
 
-## Option A — Modular stack: 4 containers
-
-**Use this if you installed the app from ZimaOS/CasaOS, or want independently
-managed web and provider containers.** The native store app and existing
-store adapters use this layout: web + Apple + Google + upstream Anisette.
-
-For a fresh server with Docker Compose, use an empty folder:
-
-```sh
-mkdir find-my-hub-modular && cd find-my-hub-modular
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.21/compose.yaml -o compose.yaml
-docker compose up -d
-docker compose ps
-```
-
-Open **`http://SERVER_IP:8125`**. Create the administrator and complete **Setup**.
-This recipe uses persistent named volumes. Provider ports are internal by
-default; the browser talks to the web app, not directly to those containers.
-
-**Store users:** update the existing app normally. Do not install another copy
-or change its app ID just to obtain this update. The [catalog guide](STORES.md#casaos--zimaos)
-explains JSON store sources and the supported platform adapters.
-
-## Option B — All-in-One: 2 containers
+## Option A — All-in-One: 2 containers (recommended)
 
 **Explicit image name: `ghcr.io/mattboxx/apple-google-tracking-server`.**
 It contains web + Apple provider + Google provider, supervised as three
@@ -67,6 +46,30 @@ Version tags pin a reproducible release. `latest`/`stable` follow future stable
 releases; they do not update a running container by themselves. The modular
 images also have their own `latest` tags. Never replace `find-my-web` with the
 bundle without following the data-layout migration instructions.
+
+## Option B — Legacy modular stack: 4 containers
+
+**Legacy layout for existing modular installations and current native-store
+entries.** It runs web + Apple + Google + upstream Anisette. For a new server,
+choose the recommended All-in-One layout above. Existing installations can
+keep this layout; there is no automatic migration.
+
+If you explicitly need the legacy layout, use an empty folder:
+
+```sh
+mkdir find-my-hub-modular && cd find-my-hub-modular
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.21/compose.yaml -o compose.yaml
+docker compose up -d
+docker compose ps
+```
+
+Open **`http://SERVER_IP:8125`**. Create the administrator and complete **Setup**.
+This recipe uses persistent named volumes. Provider ports are internal by
+default; the browser talks to the web app, not directly to those containers.
+
+**Store users:** update the existing app normally. Do not install another copy
+or change its app ID just to obtain this update. The [catalog guide](STORES.md#casaos--zimaos)
+explains JSON store sources and the supported platform adapters.
 
 ## First-run checklist — both layouts
 
