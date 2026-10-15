@@ -77,6 +77,10 @@ In **Setup** imposta indirizzi raggiungibili **dal container web**. I nomi dei
 servizi Compose funzionano su una rete Docker condivisa; `localhost` indica il
 container stesso, non il NAS. In alternativa usa IP LAN e porta pubblicata.
 
+**Prerequisito account Apple:** Prima di accedere, usa un account Apple registrato almeno una volta su un dispositivo Apple e con iCloud attivato (basta il piano gratuito da 5 GB). Dopo l'attivazione puoi rimuovere il dispositivo dall'account.
+
+**Prerequisito account Google:** Usa un account Google con almeno un dispositivo già registrato nella rete Google Find Hub. Per una copertura più ampia, scegli sul dispositivo Android la massima partecipazione alla rete nelle impostazioni di ritrovamento offline (in tutte le aree, o la voce equivalente).
+
 ![Configurazione provider e autenticazione](screenshots/08-provider-setup.jpg)
 
 - Apple: endpoint macless-haystack HTTP, normalmente `6176`. Il controller

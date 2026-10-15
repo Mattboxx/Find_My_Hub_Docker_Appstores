@@ -99,6 +99,14 @@ Requires Docker with Compose and an `amd64` or `arm64` host. You will also need
 the relevant Apple/Google account setup and compatible tracker identities.
 Installing the containers does not automatically authenticate those accounts.
 
+**Apple account prerequisite:** sign in on an Apple device at least once and
+activate iCloud (**the free 5 GB plan is enough**). You can remove that device
+from the account afterwards. [Account setup details](docs/INSTALLATION.md#apple-account-prerequisite).
+
+**Google account prerequisite:** at least one device already registered on
+**Google Find Hub**. Maximum network coverage ("With network in all areas")
+is recommended. [Account setup details](docs/INSTALLATION.md#google-account-prerequisite).
+
 | Layout | What runs | Total |
 | --- | --- | --- |
 | **All-in-One (recommended)** | `apple-google-tracking-server` bundles web + Apple + Google; Anisette remains separate | **2 containers** |
