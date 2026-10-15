@@ -3,7 +3,8 @@
 [Project overview](../README.md) · [Installation guide](INSTALLATION.md)
 
 This catalog is the public installation companion to **Apple + Google Tracking
-Server**. Its native app is still named **Find My Hub**. Store IDs, data paths
+Server**. The catalog is displayed as **Apple + Google Tracking Server**;
+its native app is still named **Find My Hub**. Store IDs, data paths
 and subscription URLs stay stable; a repository or image rename does not require
 reinstalling the app.
 

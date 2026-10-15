@@ -132,7 +132,7 @@ curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstor
 docker compose up -d
 ```
 
-For ZimaOS/CasaOS, add this **JSON source**, then install Find My Hub:
+For ZimaOS/CasaOS, add this **JSON source** (Apple + Google Tracking Server), then install Find My Hub:
 
 ```text
 https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store.json

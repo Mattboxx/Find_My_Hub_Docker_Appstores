@@ -2,12 +2,12 @@
   "version": 2,
   "store_id": "find-my-hub-docker-catalog",
   "name": {
-    "en_US": "Find My Hub Docker App Stores",
-    "it_IT": "Catalogo Docker Find My Hub"
+    "en_US": "Apple + Google Tracking Server",
+    "it_IT": "Apple + Google Tracking Server"
   },
   "description": {
-    "en_US": "Install Find My Hub: Apple/Google map, local history, isolated accounts, optional integrations and illustrated guides.",
-    "it_IT": "Installa Find My Hub: mappa Apple/Google, storico locale, account separati, integrazioni opzionali e guide illustrate."
+    "en_US": "Install Apple + Google Tracking Server: tracking, identity and firmware generation, Nordic/ESP32 programming and configured ESP32 libraries. The app is Find My Hub.",
+    "it_IT": "Installa Apple + Google Tracking Server: tracciamento, generazione identità e firmware, programmazione Nordic/ESP32 e librerie ESP32 configurate. L’app si chiama Find My Hub."
   },
   "maintainer": "Mattboxx",
   "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores"
