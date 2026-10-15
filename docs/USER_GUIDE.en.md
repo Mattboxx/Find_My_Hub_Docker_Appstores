@@ -36,9 +36,14 @@ then stores them locally. Closing the browser does not stop polling. Moving a
 map point, changing a filter or creating a unified view does not modify the
 physical tracker. Historical coordinates are sightings, not a continuous route.
 
-There are two supported installation models: the all-in-one Compose/store bundle
-with separate web, Apple, Google and Anisette containers; or just the web engine
-connected to existing standard providers. MQTT and Traccar are never required.
+Choose the **modular stack** (web, Apple, Google and Anisette: **4 containers**),
+or **Apple + Google Tracking Server — All-in-One** (web + Apple + Google in
+`apple-google-tracking-server`, plus separate Anisette: **2 containers**).
+The native store app remains modular; it does not migrate automatically.
+Both offer the same web features. The old bundle name `find-my-hub` remains
+compatible. [Compare layouts and installation commands](../README.md).
+You can also run just the web engine connected to existing standard providers.
+MQTT and Traccar are never required.
 The Traccar-named Google sidecar is **not** the optional Traccar map server.
 
 ## 1. Install and sign in
