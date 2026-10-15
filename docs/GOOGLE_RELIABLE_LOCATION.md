@@ -1,4 +1,84 @@
-# Google raw reports and reliable location / Report originali e posizione affidabile
+# Google raw reports and reliable location
+
+[Documentation](README.md) · [User guide](USER_GUIDE.en.md)
+
+## English
+
+GoogleFindMyTools returns sightings, not verified physical truth. Each original
+report is archived before validation, including malformed/semantic reports,
+nulls and duplicates. Derived annotations and the reliable location are stored
+separately. No raw UPDATE, DELETE or automatic pruning is performed. Standard
+google-find-hub-sync providers work without changing firmware, identities,
+cryptography, EID renewal or their raw /location contract.
+
+**Google data → Optimized / Raw / Both** selects the map presentation.
+Open **Google data · developer tools** at the bottom of the device panel.
+Changing the mode updates only the map; use **Reports** to open the archive.
+Help and legend are collapsed under **Info and legend**; the report list fills
+the remaining dialog space and scrolls independently. Expanded reports show
+reasons and readable derived fields, stacked on mobile. First, Next and JSON
+download controls remain available at the bottom.
+While another device or page loads, previous content is cleared and controls
+are disabled so you cannot accidentally export the previous device's reports.
+If loading fails, use **Retry**.
+Statuses, reasons and derived-field labels follow the selected language.
+Original and technical-analysis JSON keep their original field names.
+This section is collapsed by default. **Reports** opens the complete, unfiltered original-device archive, including
+unified-view members and devices whose Google configuration was removed but
+whose reports remain stored. Removing configuration does not hide the archive.
+Pages contain 200 reports, with Next page and JSON download.
+Raw/Both map markers show the selected archive page; unplottable reports remain
+in the list. Expand any report to compare RAW and DERIVED. Bold squares represent
+optimized locations; green accepted, amber pending, red outlier/rejected,
+purple duplicate and grey invalid. Language and mode preferences persist per account.
+
+Validation, evidence deduplication, adaptive clustering, robust median centers,
+anchor-relative kinematics, pending relocation and hysteresis reduce isolated
+teleports. Distinct observations are not necessarily distinct contributing phones.
+Own-report flags or excellent claimed accuracy cannot confirm a relocation alone.
+Distant singletons remain pending; confirmed clusters can relocate. Implausible
+jumps also require two minutes of evidence. Kinematic limits relax as the anchor
+ages, and coherent travel can confirm car/train motion without a stationary cluster.
+Returning to the anchor marks unconfirmed jumps as outliers; sub-5 m refinements
+retain the center. A first valid point is LOW evidence. Confidence is heuristic,
+not a calibrated probability; persistent bad reports can still mislead the estimator.
+STALE uses observation time, never repeated provider-fetch time.
+
+Administrators configure the persistent global parameters in **Setup → Provider
+connections → Google account → Google reliability parameters**, collapsed by
+default. The Reports window contains data only, not global settings.
+Distances are metres, durations seconds and speeds m/s. raw_history_retention
+labels older receipts `archived`, never deletes them (0 = no age threshold).
+Existing RETENTION_DAYS affects only legacy normalized events. Monitor storage:
+the raw archive grows on every poll. Nonfinite values display as null in payload;
+raw_json preserves literal NaN/Infinity. This is decoded report serialization,
+not captured HTTP/protobuf bytes.
+
+SQLite events.db holds immutable originals and separate rebuildable analysis.
+Missing/null accuracy stays unknown, not invalid by itself: geometry uses the
+base radius internally, with no precision bonus and public accuracy=null.
+Raw/Both preferences survive reloads; first archive pages reload automatically
+with at most four simultaneous requests. The archive remains paginated.
+Backups include new tables and committed WAL contents. Available legacy events
+are migrated once and clearly marked legacy_normalized_event; previously lost
+metadata/discarded reports cannot be reconstructed. MQTT/Home Assistant current
+states and the hub's optional Traccar integration use reliable Google anchors.
+Existing events/ topics remain normalized observations, not current reliable
+positions. External-fork PUSH_URL jobs bypass the hub and are not changed: use
+the hub's Traccar integration for reliable exports. Deleting a device retains raw
+records in private backups; device-scoped APIs require an existing accessible device.
+Keep raw exports and backups private. APIs above use normal ownership/auth guards;
+parameter writes require admin and CSRF. Follow next_cursor until null even when
+an outliers page is empty.
+
+Tests cover home→Morocco→home, stable home consensus, delayed Milan→Rome,
+distant singleton, coherent car/train travel, long-gap recovery, accuracy=1 m
+outliers, mediocre-accuracy consensus, duplicate suppression, invalid/nonfinite
+reports, late-arrival replay, immutable storage, pagination, restart, account
+isolation, failed polling, and reliable MQTT/Traccar current-position export.
+
+<details>
+<summary>Italian documentation</summary>
 
 ## Italiano
 
@@ -151,77 +231,4 @@ implicita, cluster e confidence. History contiene solo punti derivati.
 La vecchia API history conserva la compatibilità; il nuovo archivio raw
 non viene limitato da HISTORY_CAP e rispetta l'isolamento degli account.
 
-## English
-
-GoogleFindMyTools returns sightings, not verified physical truth. Each original
-report is archived before validation, including malformed/semantic reports,
-nulls and duplicates. Derived annotations and the reliable location are stored
-separately. No raw UPDATE, DELETE or automatic pruning is performed. Standard
-google-find-hub-sync providers work without changing firmware, identities,
-cryptography, EID renewal or their raw /location contract.
-
-**Google data → Optimized / Raw / Both** selects the map presentation.
-Open **Google data · developer tools** at the bottom of the device panel.
-Changing the mode updates only the map; use **Reports** to open the archive.
-Help and legend are collapsed under **Info and legend**; the report list fills
-the remaining dialog space and scrolls independently. Expanded reports show
-reasons and readable derived fields, stacked on mobile. First, Next and JSON
-download controls remain available at the bottom.
-While another device or page loads, previous content is cleared and controls
-are disabled so you cannot accidentally export the previous device's reports.
-If loading fails, use **Retry**.
-Statuses, reasons and derived-field labels follow the selected language.
-Original and technical-analysis JSON keep their original field names.
-This section is collapsed by default. **Reports** opens the complete, unfiltered original-device archive, including
-unified-view members and devices whose Google configuration was removed but
-whose reports remain stored. Removing configuration does not hide the archive.
-Pages contain 200 reports, with Next page and JSON download.
-Raw/Both map markers show the selected archive page; unplottable reports remain
-in the list. Expand any report to compare RAW and DERIVED. Bold squares represent
-optimized locations; green accepted, amber pending, red outlier/rejected,
-purple duplicate and grey invalid. Language and mode preferences persist per account.
-
-Validation, evidence deduplication, adaptive clustering, robust median centers,
-anchor-relative kinematics, pending relocation and hysteresis reduce isolated
-teleports. Distinct observations are not necessarily distinct contributing phones.
-Own-report flags or excellent claimed accuracy cannot confirm a relocation alone.
-Distant singletons remain pending; confirmed clusters can relocate. Implausible
-jumps also require two minutes of evidence. Kinematic limits relax as the anchor
-ages, and coherent travel can confirm car/train motion without a stationary cluster.
-Returning to the anchor marks unconfirmed jumps as outliers; sub-5 m refinements
-retain the center. A first valid point is LOW evidence. Confidence is heuristic,
-not a calibrated probability; persistent bad reports can still mislead the estimator.
-STALE uses observation time, never repeated provider-fetch time.
-
-Administrators configure the persistent global parameters in **Setup → Provider
-connections → Google account → Google reliability parameters**, collapsed by
-default. The Reports window contains data only, not global settings.
-Distances are metres, durations seconds and speeds m/s. raw_history_retention
-labels older receipts `archived`, never deletes them (0 = no age threshold).
-Existing RETENTION_DAYS affects only legacy normalized events. Monitor storage:
-the raw archive grows on every poll. Nonfinite values display as null in payload;
-raw_json preserves literal NaN/Infinity. This is decoded report serialization,
-not captured HTTP/protobuf bytes.
-
-SQLite events.db holds immutable originals and separate rebuildable analysis.
-Missing/null accuracy stays unknown, not invalid by itself: geometry uses the
-base radius internally, with no precision bonus and public accuracy=null.
-Raw/Both preferences survive reloads; first archive pages reload automatically
-with at most four simultaneous requests. The archive remains paginated.
-Backups include new tables and committed WAL contents. Available legacy events
-are migrated once and clearly marked legacy_normalized_event; previously lost
-metadata/discarded reports cannot be reconstructed. MQTT/Home Assistant current
-states and the hub's optional Traccar integration use reliable Google anchors.
-Existing events/ topics remain normalized observations, not current reliable
-positions. External-fork PUSH_URL jobs bypass the hub and are not changed: use
-the hub's Traccar integration for reliable exports. Deleting a device retains raw
-records in private backups; device-scoped APIs require an existing accessible device.
-Keep raw exports and backups private. APIs above use normal ownership/auth guards;
-parameter writes require admin and CSRF. Follow next_cursor until null even when
-an outliers page is empty.
-
-Tests cover home→Morocco→home, stable home consensus, delayed Milan→Rome,
-distant singleton, coherent car/train travel, long-gap recovery, accuracy=1 m
-outliers, mediocre-accuracy consensus, duplicate suppression, invalid/nonfinite
-reports, late-arrival replay, immutable storage, pagination, restart, account
-isolation, failed polling, and reliable MQTT/Traccar current-position export.
+</details>
