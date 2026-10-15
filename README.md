@@ -1,13 +1,13 @@
 # Apple + Google Tracking Server
 
-**Track your devices, program your trackers, and add Apple/Google finding to your ESP32 projects.**
+**Self-hosted Apple Find My + Google Find Hub tracking, Bluetooth firmware tools and ESP32 libraries.**
 
 [Support development on Ko-fi](https://ko-fi.com/mattboxx) · [Documentation](docs/README.md) · [Screenshots](docs/screenshots/README.md) · [Install](#installation)
 
 ## What is this project?
 
-This server brings the locations of your Apple- and Google-compatible Bluetooth
-trackers into one web interface, called **Find My Hub**. Run it on your own NAS,
+A self-hosted server for **Apple Find My** and **Google Find Hub** Bluetooth
+trackers, with one web interface: **Apple + Google Tracking**. Run it on your own NAS,
 home server or Docker host, sign in from a phone or computer, and see your devices
 on a map with a persistent history of their reported positions.
 
@@ -75,7 +75,7 @@ WebSerial or downloaded files. [ESP32 page](docs/screenshots/12-esp32-flasher.jp
 The page also generates a **configured FindMyAdv ZIP**: library source,
 ready-to-copy examples and an optional PlatformIO profile. Integrate it into an
 existing **Arduino/PlatformIO firmware on a BLE-capable ESP32**, keeping your
-application's purpose and main loop. [Library and integration guide](https://github.com/Mattboxx/Find_My_adv_ESP_library).
+application's purpose and main loop. [Library and integration guide](https://github.com/Mattboxx/Apple-Google-Tracking-Esp32-Library).
 
 <details>
 <summary>More examples: unified views and Google report analysis</summary>
@@ -90,7 +90,7 @@ Pending candidates and outliers are classified, not silently removed.
 
 </details>
 
-The previews show the real interface with synthetic data or empty keys, with no
+The previews show the real interface (earlier branding) with synthetic data or empty keys, with no
 board connected. [19 stills](docs/screenshots/README.md) · [Workflows and limits](docs/WORKFLOWS.md).
 
 ## Installation
@@ -132,7 +132,7 @@ curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstor
 docker compose up -d
 ```
 
-For ZimaOS/CasaOS, add this **JSON source** (Apple + Google Tracking Server), then install Find My Hub:
+For ZimaOS/CasaOS, add this **JSON source** (Apple + Google Tracking Server), then install Apple + Google Tracking:
 
 ```text
 https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store.json
@@ -215,6 +215,6 @@ Built on [macless-haystack](https://github.com/dchristl/macless-haystack),
 Leaflet and OpenStreetMap. Third-party projects retain their own licenses.
 [Full upstream acknowledgements](ACKNOWLEDGEMENTS.md) · [License and source notices](docs/LICENSING.md).
 
-If Find My Hub helps you, consider [buying me a coffee on Ko-fi](https://ko-fi.com/mattboxx)
+If Apple + Google Tracking helps you, consider [buying me a coffee on Ko-fi](https://ko-fi.com/mattboxx)
 to support continued maintenance, clearer guides and new improvements.
 Donations are optional; every feature remains available without donating.

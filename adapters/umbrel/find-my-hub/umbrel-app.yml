@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: find-my-hub
 category: automation
-name: Find My Hub
+name: Apple + Google Tracking
 version: "1.1.21"
 tagline: One map for Apple Find My and Google Find Hub trackers
 description: >-

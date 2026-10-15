@@ -85,7 +85,7 @@ shared provider addresses or MQTT settings.
 ![Optional Traccar integration — demo settings](screenshots/10-traccar.jpg)
 
 MQTT/Home Assistant and an existing Traccar Server are optional and disabled by
-default. Find My Hub still owns its accounts, devices, history and map when
+default. Apple + Google Tracking still owns its accounts, devices, history and map when
 either integration is absent. The Google provider fork named “traccar” is not
 the optional Traccar Server map integration.
 

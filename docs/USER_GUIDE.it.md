@@ -1,11 +1,11 @@
-# Find My Hub — guida illustrata
+# Apple + Google Tracking — guida illustrata
 
 [English](USER_GUIDE.en.md) · [Galleria delle funzioni](screenshots/README.md)
 
 ## Il senso del progetto
 
 Un oggetto può avere un tracker Apple, un tracker Google oppure una scheda BLE
-programmabile che trasmette entrambe le identità. Find My Hub raccoglie le loro
+programmabile che trasmette entrambe le identità. Apple + Google Tracking raccoglie le loro
 posizioni in una sola mappa self-hosted, conservando uno storico locale senza
 dover passare continuamente tra strumenti diversi. Più account permettono a una
 famiglia o a un piccolo gruppo di condividere il server mantenendo separati i
@@ -26,7 +26,7 @@ Tracker BLE → telefoni contribuenti vicini → rete Apple / Google
                                                  ↓
                            macless-haystack / sidecar Google Find Hub
                                                  ↓ HTTP
-                            Find My Hub → storico SQLite locale → mappa web
+                            Apple + Google Tracking → storico SQLite locale → mappa web
                                         ↘ MQTT / Home Assistant (opzionale)
                                         ↘ Traccar Server esistente (opzionale)
 ```
@@ -224,7 +224,7 @@ broker non è necessario alla mappa; i filtri dello storico non limitano gli exp
 
 In **Setup → Mappa Traccar** collega un Traccar Server standard già esistente:
 URL web/API, token oppure credenziali e URL ricevitore OsmAnd. Scegli dispositivi
-originali, viste unificate o entrambi; salva, verifica e sincronizza. Find My Hub
+originali, viste unificate o entrambi; salva, verifica e sincronizza. Apple + Google Tracking
 gestisce le entità corrispondenti e inoltra le posizioni più recenti.
 
 ![Integrazione Traccar](screenshots/10-traccar.jpg)
@@ -275,7 +275,7 @@ con gli altri usi BLE del tuo programma, senza sostituire l'intero firmware.
 
 ![Libreria FindMyAdv personalizzata](screenshots/13-esp32-library.jpg)
 
-Repo di riferimento: [FindMyAdv](https://github.com/Mattboxx/Find_My_adv_ESP_library).
+Repo di riferimento: [FindMyAdv](https://github.com/Mattboxx/Apple-Google-Tracking-Esp32-Library).
 Asset web per ESP32/C3/S3/C6 e Nordic 52810/52832/52833/52840; nRF54L15 ha limiti
 specifici di scheda/trasporto spiegati nel flasher. Una compilazione o flash
 riusciti non certificano i pin di ogni revisione PCB. La verifica hardware del
@@ -284,7 +284,7 @@ pulsante/LED Radioland è ancora pendente; questa release non cambia firmware.
 ## Posizioni Google affidabili (1.1.16)
 
 I report Google sono avvistamenti, non automaticamente la posizione corrente.
-Find My Hub conserva ogni originale prima dei controlli e calcola una posizione
+Apple + Google Tracking conserva ogni originale prima dei controlli e calcola una posizione
 affidabile separata, usando consenso, cluster e plausibilità del movimento. Un
 teleport isolato resta in attesa; uno spostamento confermato può sostituire
 l'ancora precedente. HIGH/MEDIUM/LOW e STALE descrivono il risultato elaborato,
@@ -334,7 +334,7 @@ identità e rinnovo EID → pacchetto BLE → nuovo avvistamento**. Un container
 non dimostra che la pagina risponda. Il rinnovo EID riuscito non garantisce un
 report da un telefono; anche soppressione vicino Home e regole crowdsourced
 influiscono. Non sono garantiti tempi di ricezione e non esiste supporto universale
-al buzzer/ringing remoto in Find My Hub.
+al buzzer/ringing remoto in Apple + Google Tracking.
 
 ## Privacy delle immagini e dei pacchetti
 

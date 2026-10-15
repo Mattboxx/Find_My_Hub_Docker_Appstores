@@ -38,7 +38,7 @@ jobs:
           cache-file: .cache/build_appstore/image-size-cache.json
           digest-cache-file: .cache/build_appstore/image-digest-cache.json
           report-json: out/build-v2-report.json
-          report-title: Find My Hub ZimaOS V2 Catalog
+          report-title: Apple + Google Tracking ZimaOS V2 Catalog
 
       - name: Verify published catalog payload
         shell: bash
@@ -148,11 +148,11 @@ jobs:
             done
 
             if [ "$verification_ok" = true ]; then
-              echo "GitHub exposes Find My Hub ${published_version} in metadata and every Compose variant"
+              echo "GitHub exposes Apple + Google Tracking ${published_version} in metadata and every Compose variant"
               exit 0
             fi
             echo "GitHub payload is not consistently at ${expected_version} (metadata: ${published_version}); retrying"
             sleep $((attempt * 5))
           done
-          echo "GitHub did not expose a consistent Find My Hub ${expected_version} payload after refresh" >&2
+          echo "GitHub did not expose a consistent Apple + Google Tracking ${expected_version} payload after refresh" >&2
           exit 1

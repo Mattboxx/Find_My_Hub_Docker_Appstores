@@ -123,8 +123,8 @@ x-casaos:
     - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
     - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/01-login.jpg
   title:
-    en_US: Find My Hub
-    it_IT: Find My Hub
+    en_US: Apple + Google Tracking
+    it_IT: Apple + Google Tracking
   tagline:
     en_US: One map for Apple Find My and Google Find Hub trackers.
     it_IT: Una sola mappa per i tracker Apple Find My e Google Find Hub.

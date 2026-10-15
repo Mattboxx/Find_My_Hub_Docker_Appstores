@@ -7,7 +7,7 @@ deliberately **not a single container containing Anisette**.
 
 **Recommended for new installations.** The four-container modular layout is legacy.
 
-| Layout | Find My Hub containers | Anisette | Total |
+| Layout | Apple + Google Tracking containers | Anisette | Total |
 | --- | --- | --- | --- |
 | Modular (legacy) | Web + Apple + Google, each separate | 1 upstream container | **4** |
 | All-in-One (recommended) | Web + Apple + Google inside one container | 1 upstream container | **2** |

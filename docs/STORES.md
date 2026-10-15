@@ -4,7 +4,7 @@
 
 This catalog is the public installation companion to **Apple + Google Tracking
 Server**. The catalog is displayed as **Apple + Google Tracking Server**;
-its native app is still named **Find My Hub**. Store IDs, data paths
+its native app is still named **Apple + Google Tracking**. Store IDs, data paths
 and subscription URLs stay stable; a repository or image rename does not require
 reinstalling the app.
 
@@ -42,7 +42,7 @@ Both provider tokens may remain empty on a trusted local network.
 
 The catalog does not bundle or require Traccar. A standard existing Traccar
 Server can be enabled later from the administrator **Setup → Traccar map**
-card. If disabled or unreachable, Find My Hub continues to manage providers,
+card. If disabled or unreachable, Apple + Google Tracking continues to manage providers,
 users, history, MQTT, unified views, and its own map independently.
 
 ## CasaOS / ZimaOS
@@ -111,7 +111,7 @@ APP_DATA_DIR=/tmp/find-my-hub docker compose -f adapters/umbrel/find-my-hub/dock
 APP_DATA_DIR=/tmp/find-my-hub docker compose -f adapters/runtipi/apps/find-my-hub/docker-compose.yml config --quiet
 ```
 
-Find My Hub uses unofficial, reverse-engineered Apple and Google integrations.
+Apple + Google Tracking uses unofficial, reverse-engineered Apple and Google integrations.
 It is not affiliated with Apple or Google. Use dedicated accounts and trackers
 you own.
 ## Previous release highlights
