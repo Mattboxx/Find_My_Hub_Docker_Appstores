@@ -38,9 +38,14 @@ localmente. Chiudere la pagina non interrompe il polling. Filtri, mappa e viste
 unificate non cambiano il firmware. I punti sono avvistamenti, non una traiettoria
 continua misurata dall'oggetto.
 
-Puoi installare il bundle con web, Apple, Google e Anisette in container separati,
-oppure soltanto il web collegandolo a provider standard già esistenti. MQTT e
-Traccar sono sempre opzionali. Il sidecar Google del fork chiamato **traccar**
+Puoi scegliere lo **stack modulare** (web, Apple, Google e Anisette:
+**4 container**) oppure **Apple + Google Tracking Server — All-in-One**
+(web + Apple + Google in `apple-google-tracking-server`, più Anisette separato:
+**2 container**). L'app nativa dello store rimane modulare: non migra da sola.
+Le funzioni web sono le stesse; il vecchio nome `find-my-hub` rimane compatibile.
+[Confronto e comandi di installazione](../README.md).
+Puoi anche installare soltanto il web collegandolo a provider standard già
+esistenti. MQTT e Traccar sono sempre opzionali. Il sidecar Google del fork chiamato **traccar**
 non è il **Traccar Server** usato dall'integrazione opzionale della mappa.
 
 ## 1. Installazione, accesso e lingua
