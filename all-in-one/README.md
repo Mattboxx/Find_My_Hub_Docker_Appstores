@@ -1,9 +1,22 @@
-# Stable all-in-one with external Anisette / Variante stabile
+# Apple + Google Tracking Server — All-in-One
 
-The `find-my-hub` image runs **web, Apple provider and Google provider** as
+The `apple-google-tracking-server` image runs **web, Apple provider and Google provider** as
 three independently supervised processes. Anisette uses its original upstream
 image in a second container. Compose starts both with one command. This is
 deliberately **not a single container containing Anisette**.
+
+| Layout | Find My Hub containers | Anisette | Total |
+| --- | --- | --- | --- |
+| Modular / Modulare | Web + Apple + Google, each separate | 1 upstream container | **4** |
+| All-in-One | Web + Apple + Google inside one container | 1 upstream container | **2** |
+
+Both layouts provide the same interface and features. The native ZimaOS/CasaOS
+store app uses the modular layout; choosing All-in-One is a deliberate separate
+deployment, not an automatic store update. `find-my-web` is web only.
+
+The previous `ghcr.io/mattboxx/find-my-hub` name remains a compatibility alias.
+Existing configurations can keep it. New installations should use the explicit
+`ghcr.io/mattboxx/apple-google-tracking-server` name. No images or data are deleted.
 
 The original separate-provider stack and standard external providers remain
 supported. No installation is migrated automatically. Firmware, identities and
@@ -15,7 +28,7 @@ Create an empty installation folder and download this public Compose recipe:
 
 ```sh
 mkdir find-my-hub && cd find-my-hub
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.21/all-in-one/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/all-in-one/compose.yaml -o compose.yaml
 mkdir -p data/anisette
 sudo chown 1000:1000 data/anisette
 docker compose up -d
@@ -41,7 +54,7 @@ Optional values can be placed in an installation-local `.env`:
 | --- | --- | --- |
 | `WEB_PORT` | `8125` | Published web port |
 | `APP_DATA_DIR` | `./data` | Host data root |
-| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/find-my-hub:1.1.21` | Pinned bundle image |
+| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/apple-google-tracking-server:1.1.21` | Pinned bundle image |
 | `APPLE_SETUP_TOKEN` | empty | Optional internal Apple setup token |
 | `GOOGLE_TOKEN` | empty | Optional internal Google API/setup token |
 
@@ -49,6 +62,13 @@ Use the version tag for reproducible installations. `stable` and `latest`
 track the latest stable bundle, never development builds. Provider tokens do
 not replace the web account password. Keep the installation on a trusted
 LAN/VPN or behind appropriately configured HTTPS access controls.
+
+The current Compose file pins the image version even though the download link
+uses `main`. Historical `v1.1.21` recipes still refer to the old image name and
+remain valid. To adopt the new name in an existing bundle installation, change
+only the image reference (or `FINDMY_AIO_IMAGE`), preserving every data mount,
+environment value, port and Compose project name. This is not a modular-to-bundle
+migration. The two names resolve to the same 1.1.21 image digest.
 
 ## Update without losing data
 
