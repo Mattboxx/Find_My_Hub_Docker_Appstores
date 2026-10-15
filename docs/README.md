@@ -55,3 +55,4 @@ Do not add runtime data, credentials, personalized firmware or production maps.
 Application source is maintained in the private
 [`Apple-Google-Tracking-Server`](https://github.com/Mattboxx/Apple-Google-Tracking-Server)
 repository. The original catalog URL remains unchanged for installed store sources.
+- [Project names and compatibility](BRANDING.md)

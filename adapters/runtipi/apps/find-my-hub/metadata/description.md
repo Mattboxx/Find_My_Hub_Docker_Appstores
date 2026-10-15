@@ -1,4 +1,4 @@
-# Find My Hub
+# Apple + Google Tracking
 
 One self-hosted map for your Apple Find My and Google Find Hub trackers, with
 local history, persistent time ranges, isolated user accounts and reversible

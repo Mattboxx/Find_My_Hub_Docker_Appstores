@@ -1,6 +1,8 @@
 # Interface gallery
 
-Captured from Find My Hub 1.1.15 and the 1.1.16/1.1.17/1.1.18 feature previews in isolated Docker environments with synthetic
+Screenshots retain the earlier Find My Web / Find My Hub branding; the illustrated workflows still apply.
+
+Captured from application version 1.1.15 and the 1.1.16/1.1.17/1.1.18 feature previews in isolated Docker environments with synthetic
 devices, accounts, identities and locations. No real credentials or personal
 tracking data were used. Provider services in this demo are unconfigured;
 screenshots document controls, not a claim of live Apple/Google connectivity.
