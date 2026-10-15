@@ -8,11 +8,17 @@ its native app is still named **Find My Hub**. Store IDs, data paths
 and subscription URLs stay stable; a repository or image rename does not require
 reinstalling the app.
 
+**For new installations use the recommended two-container All-in-One recipe.**
+The native entries below still deploy the **legacy four-container modular
+stack** for compatibility with existing installations. They do not migrate
+automatically. [Recommended installation](INSTALLATION.md).
+
 ## Compatibility
 
 | Platform | Entry point | Installation |
 | --- | --- | --- |
-| Docker, Docker Desktop, Dockge and Compose-compatible panels | `compose.yaml` | Import or run the Compose file |
+| Docker, Docker Desktop, Dockge and Compose-compatible panels | `all-in-one/compose.yaml` | Recommended two-container installation |
+| Existing modular Docker installations | `compose.yaml` | Legacy four-container recipe |
 | CasaOS / ZimaOS | `Apps/FindMyHub` | Register the published v2 `store.json` URL |
 | Portainer | `portainer/templates.json` | Use the raw JSON URL as an App Templates URL |
 | Umbrel Community App Store | `adapters/umbrel/` | Publish/fork this directory as an Umbrel community store |
@@ -22,7 +28,7 @@ Store formats are not standardized. The generic Compose file covers products
 that can import Compose; native one-click stores require their own small
 manifest, all kept in this repository.
 
-## Modular stack — generic Docker installation
+## Legacy modular stack — generic Docker installation
 
 ```bash
 git clone https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores.git
@@ -65,7 +71,7 @@ Set **App Templates URL** to:
 https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/portainer/templates.json
 ```
 
-The template deploys the modular root `compose.yaml`: four containers with
+The template deploys the legacy modular root `compose.yaml`: four containers with
 Anisette. For All-in-One, import `all-in-one/compose.yaml` as a separate stack
 after following the Linux data-directory preparation in its guide.
 

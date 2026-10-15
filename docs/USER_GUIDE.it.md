@@ -38,10 +38,11 @@ localmente. Chiudere la pagina non interrompe il polling. Filtri, mappa e viste
 unificate non cambiano il firmware. I punti sono avvistamenti, non una traiettoria
 continua misurata dall'oggetto.
 
-Puoi scegliere lo **stack modulare** (web, Apple, Google e Anisette:
-**4 container**) oppure **Apple + Google Tracking Server — All-in-One**
-(web + Apple + Google in `apple-google-tracking-server`, più Anisette separato:
-**2 container**). L'app nativa dello store rimane modulare: non migra da sola.
+Per nuove installazioni è consigliato **Apple + Google Tracking Server —
+All-in-One**: web + Apple + Google in `apple-google-tracking-server`, più
+Anisette separato (**2 container**). Lo **stack modulare legacy** mantiene web,
+Apple, Google e Anisette separati (**4 container**) per installazioni esistenti
+e per l'attuale app nativa dello store. Nessuna installazione migra da sola.
 Le funzioni web sono le stesse; il vecchio nome `find-my-hub` rimane compatibile.
 [Confronto e comandi di installazione](../README.md).
 Puoi anche installare soltanto il web collegandolo a provider standard già
@@ -50,7 +51,8 @@ non è il **Traccar Server** usato dall'integrazione opzionale della mappa.
 
 ## 1. Installazione, accesso e lingua
 
-Installa tramite Compose o uno store supportato e apri `http://HOST:8125`.
+Per un nuovo server usa All-in-One; le installazioni native esistenti
+mantengono il layout legacy. Apri `http://HOST:8125`.
 Al primo avvio crea l'amministratore e configura i provider in **Setup**.
 La mappa richiede un account; i token delle API provider sono invece facoltativi
 e distinti dal login web. Lasciare i provider senza token è accettabile solo
