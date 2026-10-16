@@ -1,0 +1,5 @@
+{
+  "store_id": "find-my-hub-docker-catalog",
+  "name": "TagRelayLab Server",
+  "description": "Catalogo legacy a quattro container per installazioni esistenti. Per nuove installazioni usa All-in-One (due container). Tracciamento, firmware e librerie ESP32."
+}
