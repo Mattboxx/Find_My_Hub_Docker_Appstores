@@ -20,6 +20,17 @@ Self-hosting does not remove the operator's privacy and security responsibilitie
 Only track your property or people who have knowingly authorized that use.
 Do not use this project for covert tracking, harassment or bypassing safeguards.
 
+### Shared browsers
+
+Sign out before giving another person access to a shared browser. Current web
+sessions clear keys, device/report caches and map state when the account changes;
+automatic key handoffs to a flasher also check the account. This cannot retract
+clipboard contents or files already downloaded. Updated firmware pages clear
+their key fields and prepared downloads on account changes too; writes already
+started finish using a private operation snapshot, not reusable prepared state.
+Close old pages and secure personalized files yourself. Another tab's logout
+never interrupts a write already in progress.
+
 ## No mandatory payment or hosted service
 
 There is no required subscription, activation payment or donation. Ko-fi support

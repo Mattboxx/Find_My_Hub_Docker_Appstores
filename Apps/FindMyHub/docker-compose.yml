@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.24
+    image: ghcr.io/mattboxx/find-my-web:1.1.25
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.24
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.25
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.24
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.25
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -189,11 +189,11 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.24"
+  version: "1.1.25"
   update_at: "2026-10-16"
   release_notes:
-    en_US: "Fix MQTT with unknown Google accuracy, IPv6 provider settings, concurrent last-admin protection and immediate restart of downloaded FindMyAdv libraries. Preserve volumes; no tracker registration or firmware flashing is needed."
-    it_IT: "Corretti MQTT con accuratezza Google sconosciuta, configurazione IPv6 dei provider, protezione concorrente dell'ultimo admin e riavvio immediato delle librerie FindMyAdv scaricate. Conservare i volumi; non serve registrare di nuovo i tracker o riflashare il firmware."
+    en_US: "Strengthen shared-browser account isolation: clear old keys, maps, reports and prepared downloads on account changes; reject stale requests and imports. Align FindMyAdv metadata and NimBLE 2.x dependency bounds. Preserve volumes, identities and firmware. Reload existing browser tabs after updating."
+    it_IT: "Rafforzato l'isolamento degli account nel browser condiviso: al cambio account vengono rimossi vecchie chiavi, mappe, report e download preparati; richieste e importazioni obsolete sono bloccate. Allineati metadati FindMyAdv e dipendenza NimBLE 2.x. Volumi, identità e firmware invariati. Ricaricare le schede del browser dopo l'aggiornamento."
   website: https://github.com/Mattboxx/TagRelayLab-Appstores
   repo: https://github.com/Mattboxx/TagRelayLab-Appstores
   support: https://github.com/Mattboxx/TagRelayLab-Appstores/issues
