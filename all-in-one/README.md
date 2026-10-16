@@ -65,7 +65,7 @@ Optional values can be placed in an installation-local `.env`:
 | --- | --- | --- |
 | `WEB_PORT` | `8125` | Published web port |
 | `APP_DATA_DIR` | `./data` | Host data root |
-| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/apple-google-tracking-server:1.1.22` | Pinned bundle image |
+| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/apple-google-tracking-server:1.1.23` | Pinned bundle image |
 | `APPLE_SETUP_TOKEN` | empty | Optional internal Apple setup token |
 | `GOOGLE_TOKEN` | empty | Optional internal Google API/setup token |
 
@@ -79,7 +79,7 @@ uses `main`. Historical `v1.1.21` recipes still refer to the old image name and
 remain valid. To adopt the new name in an existing bundle installation, change
 only the image reference (or `FINDMY_AIO_IMAGE`), preserving every data mount,
 environment value, port and Compose project name. This is not a modular-to-bundle
-migration. The two names resolve to the same 1.1.22 image digest.
+migration. The two names resolve to the same 1.1.23 image digest.
 
 ## Update without losing data
 
@@ -165,7 +165,7 @@ docker compose -f deploy/all-in-one/compose.yaml -f deploy/all-in-one/compose.bu
 ```
 
 Set `FINDMY_PROVIDER_TAG` if you need a different existing provider release;
-its default is `1.1.22`. This builds the bundle locally, not Anisette.
+its default is `1.1.23`. This builds the bundle locally, not Anisette.
 
 ## Italiano
 
@@ -177,7 +177,7 @@ poi `http://IP_SERVER:8125` e completa la configurazione dei tuoi account.
 Non serve modificare un'installazione funzionante: lo stack separato resta
 disponibile. Se migri, ferma prima lo stack originale, salva tutte e cinque le
 cartelle dati e imposta `APP_DATA_DIR` al percorso verificato. Non avviare mai
-due versioni sullo stesso archivio. Usa il tag `1.1.22` per una versione fissa,
+due versioni sullo stesso archivio. Usa il tag `1.1.23` per una versione fissa,
 oppure `stable`/`latest` per seguire le release stabili. Le chiavi, il firmware
 e lo storico non vengono rigenerati; autenticazione Apple/Google e 2FA rimangono
 necessarie.
