@@ -64,10 +64,10 @@ compatible image name**; existing installations are not broken or forced to move
 
 | Image reference | Meaning |
 | --- | --- |
-| `ghcr.io/mattboxx/find-my-web:1.1.22` | Web only; needs separate/existing providers |
-| `ghcr.io/mattboxx/apple-google-tracking-server:1.1.22` | Web + Apple + Google bundle |
+| `ghcr.io/mattboxx/find-my-web:1.1.23` | Web only; needs separate/existing providers |
+| `ghcr.io/mattboxx/apple-google-tracking-server:1.1.23` | Web + Apple + Google bundle |
 | `ghcr.io/mattboxx/apple-google-tracking-server:stable` or `:latest` | Latest stable bundle |
-| `ghcr.io/mattboxx/find-my-hub:1.1.22` | Legacy name for that same bundled image |
+| `ghcr.io/mattboxx/find-my-hub:1.1.23` | Legacy name for that same bundled image |
 
 Version tags pin a reproducible release. `latest`/`stable` follow future stable
 releases; they do not update a running container by themselves. The modular
@@ -85,7 +85,7 @@ If you explicitly need the legacy layout, use an empty folder:
 
 ```sh
 mkdir find-my-hub-modular && cd find-my-hub-modular
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.22/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.23/compose.yaml -o compose.yaml
 docker compose up -d
 docker compose ps
 ```
@@ -114,6 +114,11 @@ explains JSON store sources and the supported platform adapters.
    BLE advertising does not guarantee a recent location report.
 6. Select a language, check the account's devices and enable integrations only
    if needed. EN, IT, ES, FR, RU and Simplified Chinese persist in that browser.
+
+Provider addresses accept Docker hostnames, IPv4 or bracketed IPv6, for example
+`http://[2001:db8::2]` with port `5500` for Google. Keep IPv6 brackets when using
+a full URL. Apple setup uses port `6177`; Google setup uses `5501` by default.
+These are separate from the provider query ports (`6176` / `5500`).
 
 The four new locales use offline machine translations with reviewed critical
 messages. Technical errors/raw JSON and generated ZIP documentation may retain

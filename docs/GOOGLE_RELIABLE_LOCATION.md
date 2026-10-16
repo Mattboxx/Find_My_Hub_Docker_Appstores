@@ -57,6 +57,8 @@ not captured HTTP/protobuf bytes.
 SQLite events.db holds immutable originals and separate rebuildable analysis.
 Missing/null accuracy stays unknown, not invalid by itself: geometry uses the
 base radius internally, with no precision bonus and public accuracy=null.
+MQTT/Home Assistant omits `gps_accuracy` when it is unknown; the position is
+still published. Raw reports are not changed to invent a measured accuracy.
 Raw/Both preferences survive reloads; first archive pages reload automatically
 with at most four simultaneous requests. The archive remains paginated.
 Backups include new tables and committed WAL contents. Available legacy events
@@ -145,6 +147,8 @@ cluster → analisi spazio/tempo → valutazione candidati → posizione affidab
    Accuracy assente/null resta sconosciuta e non invalida da sola il report:
    la geometria usa il raggio base, senza bonus di precisione; il campo pubblico
    accuracy resta null. Provenienze mancanti non vengono inventate.
+   MQTT/Home Assistant omette `gps_accuracy` se sconosciuta e continua a
+   pubblicare la posizione, senza alterare il report originale.
 3. Ripetizioni esatte e osservazioni entro 10 m/30 secondi non aumentano il
    supporto. Osservazioni distinte non garantiscono telefoni distinti quando
    Google non espone l'identità del contribuente.
