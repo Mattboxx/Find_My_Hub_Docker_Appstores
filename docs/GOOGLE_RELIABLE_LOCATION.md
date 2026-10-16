@@ -85,7 +85,7 @@ isolation, failed polling, and reliable MQTT/Traccar current-position export.
 ## Italiano
 
 GoogleFindMyTools restituisce avvistamenti, non una garanzia della posizione
-reale. Apple + Google Tracking conserva gli originali e calcola separatamente il punto
+reale. TagRelayLab conserva gli originali e calcola separatamente il punto
 più plausibile. Firmware, identità, crittografia e rinnovo EID non cambiano.
 Sono compatibili anche provider standard `google-find-hub-sync` che restituiscono
 la lista originale `locations`: non servono necessariamente i nostri package.
@@ -211,7 +211,7 @@ Le posizioni correnti MQTT/Home Assistant e dell'integrazione opzionale Traccar
 usano l'ancora affidabile Google; nelle viste unificate si confrontano le
 posizioni affidabili Google e quelle Apple dei membri. I topic `events/...`
 restano osservazioni normalizzate del provider, non posizioni correnti affidabili.
-Il PUSH_URL diretto di un fork esterno bypassa Apple + Google Tracking e non viene modificato:
+Il PUSH_URL diretto di un fork esterno bypassa TagRelayLab e non viene modificato:
 per esportare punti affidabili usa l'integrazione Traccar del web hub.
 
 L'eliminazione di un dispositivo non cancella i raw dal database/backup privato;

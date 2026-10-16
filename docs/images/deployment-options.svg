@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="610" viewBox="0 0 1120 610" role="img" aria-labelledby="title desc">
-  <title id="title">Apple + Google Tracking: legacy modular stack versus recommended All-in-One</title>
+  <title id="title">TagRelayLab: legacy modular stack versus recommended All-in-One</title>
   <desc id="desc">The legacy modular stack has separate web, Apple and Google containers plus upstream Anisette, four containers total. The recommended all-in-one image runs web, Apple and Google as three processes in one container, plus upstream Anisette, two containers total. Both provide the same interface and features.</desc>
   <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#94a3b8"/></marker></defs>
   <rect width="1120" height="610" rx="20" fill="#0f172a"/>
@@ -28,7 +28,7 @@
     <text x="594" y="140" font-size="22" font-weight="700">Recommended All-in-One</text>
     <text x="594" y="170" font-size="17" fill="#86efac">1 bundle + Anisette = 2</text>
     <rect x="600" y="196" width="465" height="190" rx="12" fill="#103d39" stroke="#34d399" stroke-width="2"/>
-    <text x="832" y="229" text-anchor="middle" font-size="21" font-weight="700">apple-google-tracking-server</text>
+    <text x="832" y="229" text-anchor="middle" font-size="21" font-weight="700">tagrelaylab-server</text>
     <text x="832" y="258" text-anchor="middle" font-size="15" fill="#bbf7d0">ONE container</text>
     <rect x="620" y="280" width="126" height="70" rx="8" fill="#1e40af"/>
     <rect x="766" y="280" width="126" height="70" rx="8" fill="#334155"/>

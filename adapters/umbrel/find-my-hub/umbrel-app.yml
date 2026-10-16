@@ -1,8 +1,8 @@
 manifestVersion: 1
 id: find-my-hub
 category: automation
-name: Apple + Google Tracking
-version: "1.1.23"
+name: TagRelayLab
+version: "1.1.24"
 tagline: One map for Apple Find My and Google Find Hub trackers
 description: >-
   A self-hosted multi-user tracking hub for personal Apple Find My and Google
@@ -13,33 +13,33 @@ description: >-
   Traccar, firmware tools and a configured ESP32 library. Illustrated EN/IT
   guides use synthetic images. Unofficial, not guaranteed live GPS tracking.
 developer: Mattboxx
-website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
+website: https://github.com/Mattboxx/TagRelayLab-Appstores
 dependencies: []
-repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
-support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
+repo: https://github.com/Mattboxx/TagRelayLab-Appstores
+support: https://github.com/Mattboxx/TagRelayLab-Appstores/issues
 port: 8125
 gallery:
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/02-map.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/03-history-range.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/04-unified-view.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/05-device-settings.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/06-identities.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/07-users.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/08-provider-setup.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/09-mqtt.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/10-traccar.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/11-backup.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/12-esp32-flasher.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/13-esp32-library.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/14-nrf-flasher.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/15-mobile-history.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/16-order.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/17-identity-rotation.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/18-google-reliable-reports.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
-  - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/01-login.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/02-map.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/03-history-range.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/04-unified-view.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/05-device-settings.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/06-identities.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/07-users.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/08-provider-setup.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/09-mqtt.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/10-traccar.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/11-backup.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/12-esp32-flasher.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/13-esp32-library.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/14-nrf-flasher.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/15-mobile-history.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/16-order.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/17-identity-rotation.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/18-google-reliable-reports.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
+  - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/01-login.jpg
 path: ""
 defaultUsername: ""
 defaultPassword: ""
 submitter: Mattboxx
-submission: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
+submission: https://github.com/Mattboxx/TagRelayLab-Appstores

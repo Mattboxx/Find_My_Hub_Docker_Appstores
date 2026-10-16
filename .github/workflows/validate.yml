@@ -85,7 +85,7 @@ jobs:
         with:
           source: .
           output: dist
-          base-url: https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages
+          base-url: https://cdn.jsdelivr.net/gh/Mattboxx/TagRelayLab-Appstores@gh-pages
           cache-file: .cache/build_appstore/image-size-cache.json
           digest-cache-file: .cache/build_appstore/image-digest-cache.json
           report-json: out/build-v2-report.json
@@ -114,9 +114,9 @@ jobs:
         run: |
           set -euo pipefail
           for image in \
-            ghcr.io/mattboxx/find-my-web:1.1.23 \
-            ghcr.io/mattboxx/find-my-apple-provider:1.1.23 \
-            ghcr.io/mattboxx/find-my-google-provider:1.1.23
+            ghcr.io/mattboxx/find-my-web:1.1.24 \
+            ghcr.io/mattboxx/find-my-apple-provider:1.1.24 \
+            ghcr.io/mattboxx/find-my-google-provider:1.1.24
           do
             manifest="$RUNNER_TEMP/$(basename "${image%%:*}").json"
             docker manifest inspect "$image" > "$manifest"

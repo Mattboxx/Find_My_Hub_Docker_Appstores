@@ -1,6 +1,6 @@
 # Acknowledgements
 
-Apple + Google Tracking Server brings existing community projects together; it
+TagRelayLab Server brings existing community projects together; it
 does not claim authorship of their protocols, research, providers or tools.
 Thank you to the maintainers and contributors whose work makes this possible.
 

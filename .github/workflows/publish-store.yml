@@ -34,11 +34,11 @@ jobs:
         with:
           source: .
           output: dist
-          base-url: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/catalog-${{ steps.version.outputs.version }}
+          base-url: https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/catalog-${{ steps.version.outputs.version }}
           cache-file: .cache/build_appstore/image-size-cache.json
           digest-cache-file: .cache/build_appstore/image-digest-cache.json
           report-json: out/build-v2-report.json
-          report-title: Apple + Google Tracking ZimaOS V2 Catalog
+          report-title: TagRelayLab ZimaOS V2 Catalog
 
       - name: Verify published catalog payload
         shell: bash
@@ -108,9 +108,11 @@ jobs:
             apps/io.github.mattbox03.findmyhub/docker-compose.amd64.yml \
             apps/io.github.mattbox03.findmyhub/docker-compose.arm64.yml
           do
-            curl --fail --silent --show-error \
-              "https://purge.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/${path}" \
-              >/dev/null
+            for repository in TagRelayLab-Appstores Find_My_Hub_Docker_Appstores; do
+              curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
+                "https://purge.jsdelivr.net/gh/Mattboxx/${repository}@gh-pages/${path}" \
+                >/dev/null
+            done
           done
 
       - name: Verify immutable GitHub resources expose the published app version
@@ -125,7 +127,7 @@ jobs:
             verification_ok=true
 
             if ! published_version="$(curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
-              "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/meta.json" \
+              "https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/meta.json" \
               | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')"; then
               verification_ok=false
               published_version="unavailable"
@@ -137,7 +139,7 @@ jobs:
             do
               compose_file="cdn-verify/${compose_name}"
               if ! curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
-                "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/${compose_name}" \
+                "https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/catalog-${expected_version}/apps/io.github.mattbox03.findmyhub/${compose_name}" \
                 --output "$compose_file"; then
                 verification_ok=false
                 continue
@@ -148,11 +150,11 @@ jobs:
             done
 
             if [ "$verification_ok" = true ]; then
-              echo "GitHub exposes Apple + Google Tracking ${published_version} in metadata and every Compose variant"
+              echo "GitHub exposes TagRelayLab ${published_version} in metadata and every Compose variant"
               exit 0
             fi
             echo "GitHub payload is not consistently at ${expected_version} (metadata: ${published_version}); retrying"
             sleep $((attempt * 5))
           done
-          echo "GitHub did not expose a consistent Apple + Google Tracking ${expected_version} payload after refresh" >&2
+          echo "GitHub did not expose a consistent TagRelayLab ${expected_version} payload after refresh" >&2
           exit 1

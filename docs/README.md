@@ -18,6 +18,7 @@ the primary documentation language. Screenshots use synthetic demonstration data
 | [Google reliable locations](GOOGLE_RELIABLE_LOCATION.md) | Raw archive, derived analysis, classifications and parameters |
 | [Interface languages](LOCALIZATION.md) | Translation scope, persistence and maintenance |
 | [Licensing and source notices](LICENSING.md) | Project license, provider licenses and corresponding sources |
+| [Project scope and limitations](PROJECT_SCOPE.md) | Experimental intent, optional support, self-hosting, external dependencies and privacy |
 | [Upstream acknowledgements](../ACKNOWLEDGEMENTS.md) | Foundational projects and the role of each integration |
 
 <details>
@@ -29,7 +30,7 @@ the primary documentation language. Screenshots use synthetic demonstration data
 
 ## Releases
 
-Read the [1.1.23 release notes](RELEASE_1.1.23.md) for the current stable release.
+Read the [1.1.24 release notes](RELEASE_1.1.24.md) for the current stable release.
 Earlier notes remain versioned here; they describe historical changes rather
 than the recommended installation procedure. For current commands use the
 installation guide above.
@@ -53,6 +54,6 @@ This is the public installation catalog, not a copy of the private application
 source. Keep app IDs, source IDs and existing immutable version snapshots stable.
 Do not add runtime data, credentials, personalized firmware or production maps.
 Application source is maintained in the private
-[`Apple-Google-Tracking-Server`](https://github.com/Mattboxx/Apple-Google-Tracking-Server)
-repository. The original catalog URL remains unchanged for installed store sources.
+[`TagRelayLab-Server`](https://github.com/Mattboxx/TagRelayLab-Server)
+repository. Previous catalog URLs redirect; existing store identities remain stable.
 - [Project names and compatibility](BRANDING.md)

@@ -1,11 +1,11 @@
-# Apple + Google Tracking — guida illustrata
+# TagRelayLab — guida illustrata
 
 [English](USER_GUIDE.en.md) · [Galleria delle funzioni](screenshots/README.md)
 
 ## Il senso del progetto
 
 Un oggetto può avere un tracker Apple, un tracker Google oppure una scheda BLE
-programmabile che trasmette entrambe le identità. Apple + Google Tracking raccoglie le loro
+programmabile che trasmette entrambe le identità. TagRelayLab raccoglie le loro
 posizioni in una sola mappa self-hosted, conservando uno storico locale senza
 dover passare continuamente tra strumenti diversi. Più account permettono a una
 famiglia o a un piccolo gruppo di condividere il server mantenendo separati i
@@ -26,7 +26,7 @@ Tracker BLE → telefoni contribuenti vicini → rete Apple / Google
                                                  ↓
                            macless-haystack / sidecar Google Find Hub
                                                  ↓ HTTP
-                            Apple + Google Tracking → storico SQLite locale → mappa web
+                            TagRelayLab → storico SQLite locale → mappa web
                                         ↘ MQTT / Home Assistant (opzionale)
                                         ↘ Traccar Server esistente (opzionale)
 ```
@@ -38,8 +38,8 @@ localmente. Chiudere la pagina non interrompe il polling. Filtri, mappa e viste
 unificate non cambiano il firmware. I punti sono avvistamenti, non una traiettoria
 continua misurata dall'oggetto.
 
-Per nuove installazioni è consigliato **Apple + Google Tracking Server —
-All-in-One**: web + Apple + Google in `apple-google-tracking-server`, più
+Per nuove installazioni è consigliato **TagRelayLab Server —
+All-in-One**: web + Apple + Google in `tagrelaylab-server`, più
 Anisette separato (**2 container**). Lo **stack modulare legacy** mantiene web,
 Apple, Google e Anisette separati (**4 container**) per installazioni esistenti
 e per l'attuale app nativa dello store. Nessuna installazione migra da sola.
@@ -228,7 +228,7 @@ broker non è necessario alla mappa; i filtri dello storico non limitano gli exp
 
 In **Setup → Mappa Traccar** collega un Traccar Server standard già esistente:
 URL web/API, token oppure credenziali e URL ricevitore OsmAnd. Scegli dispositivi
-originali, viste unificate o entrambi; salva, verifica e sincronizza. Apple + Google Tracking
+originali, viste unificate o entrambi; salva, verifica e sincronizza. TagRelayLab
 gestisce le entità corrispondenti e inoltra le posizioni più recenti.
 
 ![Integrazione Traccar](screenshots/10-traccar.jpg)
@@ -270,6 +270,10 @@ HTTPS/localhost: CMSIS-DAP/DAPLink per Nordic e WebSerial per ESP32. Su ESP32 pu
 servire la sequenza BOOT/RESET spiegata nella pagina. Gli ZIP personalizzati
 contengono le tue adv: non pubblicarli.
 
+Su Windows il BAT scarica esptool/pyOCD ufficiale al primo avvio e verifica
+SHA-256. Non devi installare Python o altri tool: conserva la cartella estratta
+con la cache per l'uso offline. Il downloader non invia firmware o chiavi.
+
 ![Flasher ESP32](screenshots/12-esp32-flasher.jpg)
 
 Per aggiungere advertising a un progetto Arduino/PlatformIO esistente, usa
@@ -279,7 +283,7 @@ con gli altri usi BLE del tuo programma, senza sostituire l'intero firmware.
 
 ![Libreria FindMyAdv personalizzata](screenshots/13-esp32-library.jpg)
 
-Repo di riferimento: [FindMyAdv](https://github.com/Mattboxx/Apple-Google-Tracking-Esp32-Library).
+Repo di riferimento: [FindMyAdv](https://github.com/Mattboxx/TagRelayLab-ESP32-Library).
 Asset web per ESP32/C3/S3/C6 e Nordic 52810/52832/52833/52840; nRF54L15 ha limiti
 specifici di scheda/trasporto spiegati nel flasher. Una compilazione o flash
 riusciti non certificano i pin di ogni revisione PCB. La verifica hardware del
@@ -288,7 +292,7 @@ pulsante/LED Radioland è ancora pendente; questa release non cambia firmware.
 ## Posizioni Google affidabili (1.1.16)
 
 I report Google sono avvistamenti, non automaticamente la posizione corrente.
-Apple + Google Tracking conserva ogni originale prima dei controlli e calcola una posizione
+TagRelayLab conserva ogni originale prima dei controlli e calcola una posizione
 affidabile separata, usando consenso, cluster e plausibilità del movimento. Un
 teleport isolato resta in attesa; uno spostamento confermato può sostituire
 l'ancora precedente. HIGH/MEDIUM/LOW e STALE descrivono il risultato elaborato,
@@ -328,7 +332,7 @@ Per valori predefiniti, limiti, paginazione API e migrazione, leggi
 ## 13. Aggiornamenti e diagnosi
 
 Aggiorna dallo store oppure scarica le immagini Compose versionate e ricrea i
-servizi mantenendo i volumi. `1.1.23` è riproducibile; `latest` segue l'ultima
+servizi mantenendo i volumi. `1.1.24` è riproducibile; `latest` segue l'ultima
 release. Versione store, tag immagini e manifest delle architetture devono
 coincidere. Non reinstallare/cancellare i dati per una cache dello store obsoleta.
 Esegui backup prima di modificare l'installazione.
@@ -338,7 +342,7 @@ identità e rinnovo EID → pacchetto BLE → nuovo avvistamento**. Un container
 non dimostra che la pagina risponda. Il rinnovo EID riuscito non garantisce un
 report da un telefono; anche soppressione vicino Home e regole crowdsourced
 influiscono. Non sono garantiti tempi di ricezione e non esiste supporto universale
-al buzzer/ringing remoto in Apple + Google Tracking.
+al buzzer/ringing remoto in TagRelayLab.
 
 ## Privacy delle immagini e dei pacchetti
 
