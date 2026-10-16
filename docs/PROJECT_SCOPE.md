@@ -25,9 +25,11 @@ Do not use this project for covert tracking, harassment or bypassing safeguards.
 Sign out before giving another person access to a shared browser. Current web
 sessions clear keys, device/report caches and map state when the account changes;
 automatic key handoffs to a flasher also check the account. This cannot retract
-clipboard contents or files already downloaded, or erase keys deliberately
-loaded in a separate open firmware page. Close those pages and secure the
-personalized files yourself. Another tab's logout never interrupts flashing.
+clipboard contents or files already downloaded. Updated firmware pages clear
+their key fields and prepared downloads on account changes too; writes already
+started finish using a private operation snapshot, not reusable prepared state.
+Close old pages and secure personalized files yourself. Another tab's logout
+never interrupts a write already in progress.
 
 ## No mandatory payment or hosted service
 

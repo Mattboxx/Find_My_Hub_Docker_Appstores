@@ -12,8 +12,12 @@ aligns the configured FindMyAdv download with its reviewed public source.
   session cookie, an old form is rejected rather than submitted as the new user.
   API clients that do not use this optional binding remain compatible.
 - Automatic firmware-page prefill checks its short-lived payload against the
-  current account. Manual entry and offline preparation remain available; an
-  account change does not interrupt an ongoing hardware operation.
+  current account. Updated flasher pages also clear old keys and prepared
+  downloads and reject late preparation/download results on account changes.
+  Manual/offline preparation remains available. A write already started finishes
+  safely from its private operation snapshot; no old state is reusable afterwards.
+- Editing firmware keys or settings invalidates the prepared output, including
+  an older preparation still downloading. Prepare again before flashing/export.
 - Both server library snapshots match public FindMyAdv revision
   `49207d82c191f1fc719494e67d4dfc3d137d07c6`. The Arduino dependency now has
   the same NimBLE 2.x bound as PlatformIO, and documentation distinguishes CI
