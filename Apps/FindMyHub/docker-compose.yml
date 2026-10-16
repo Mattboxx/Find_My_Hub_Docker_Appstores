@@ -4,7 +4,7 @@ services:
   web:
     container_name: find-my-hub-web
     hostname: find-my-hub-web
-    image: ghcr.io/mattboxx/find-my-web:1.1.23
+    image: ghcr.io/mattboxx/find-my-web:1.1.24
     restart: unless-stopped
     ports:
       - target: 8000
@@ -44,7 +44,7 @@ services:
   apple-provider:
     container_name: find-my-hub-apple-provider
     hostname: apple-provider
-    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.23
+    image: ghcr.io/mattboxx/find-my-apple-provider:1.1.24
     restart: unless-stopped
     environment:
       APPLE_SETUP_PORT: "6177"
@@ -65,7 +65,7 @@ services:
   google-provider:
     container_name: find-my-hub-google-provider
     hostname: google-provider
-    image: ghcr.io/mattboxx/find-my-google-provider:1.1.23
+    image: ghcr.io/mattboxx/find-my-google-provider:1.1.24
     restart: unless-stopped
     environment:
       AUTH_TOKEN: ${GOOGLE_TOKEN:-}
@@ -100,31 +100,31 @@ x-casaos:
   category: Home
   author: Mattboxx
   developer: Mattboxx
-  icon: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg
-  thumbnail: https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/02-map.jpg
+  icon: https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/Apps/FindMyHub/icon.svg
+  thumbnail: https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/02-map.jpg
   screenshot_link:
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/02-map.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/03-history-range.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/04-unified-view.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/05-device-settings.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/06-identities.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/07-users.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/08-provider-setup.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/09-mqtt.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/10-traccar.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/11-backup.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/12-esp32-flasher.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/13-esp32-library.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/14-nrf-flasher.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/15-mobile-history.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/16-order.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/17-identity-rotation.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/18-google-reliable-reports.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
-    - https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/docs/screenshots/01-login.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/02-map.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/03-history-range.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/04-unified-view.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/05-device-settings.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/06-identities.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/07-users.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/08-provider-setup.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/09-mqtt.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/10-traccar.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/11-backup.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/12-esp32-flasher.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/13-esp32-library.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/14-nrf-flasher.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/15-mobile-history.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/16-order.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/17-identity-rotation.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/18-google-reliable-reports.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/19-google-analysis-settings.jpg
+    - https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/docs/screenshots/01-login.jpg
   title:
-    en_US: Apple + Google Tracking
-    it_IT: Apple + Google Tracking
+    en_US: TagRelayLab
+    it_IT: TagRelayLab
   tagline:
     en_US: One map for Apple Find My and Google Find Hub trackers.
     it_IT: Una sola mappa per i tracker Apple Find My e Google Find Hub.
@@ -189,12 +189,12 @@ x-casaos:
   port_map: "8125"
   scheme: http
   index: /
-  version: "1.1.23"
+  version: "1.1.24"
   update_at: "2026-10-16"
   release_notes:
     en_US: "Fix MQTT with unknown Google accuracy, IPv6 provider settings, concurrent last-admin protection and immediate restart of downloaded FindMyAdv libraries. Preserve volumes; no tracker registration or firmware flashing is needed."
     it_IT: "Corretti MQTT con accuratezza Google sconosciuta, configurazione IPv6 dei provider, protezione concorrente dell'ultimo admin e riavvio immediato delle librerie FindMyAdv scaricate. Conservare i volumi; non serve registrare di nuovo i tracker o riflashare il firmware."
-  website: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
-  repo: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores
-  support: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/issues
-  docs: https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/blob/main/docs/USER_GUIDE.en.md
+  website: https://github.com/Mattboxx/TagRelayLab-Appstores
+  repo: https://github.com/Mattboxx/TagRelayLab-Appstores
+  support: https://github.com/Mattboxx/TagRelayLab-Appstores/issues
+  docs: https://github.com/Mattboxx/TagRelayLab-Appstores/blob/main/docs/USER_GUIDE.en.md

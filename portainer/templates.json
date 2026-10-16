@@ -3,13 +3,13 @@
   "templates": [
     {
       "type": 3,
-      "title": "Apple + Google Tracking",
+      "title": "TagRelayLab",
       "description": "Self-hosted Apple Find My / Google Find Hub Bluetooth tracker server with time-filtered history, reversible views, guarded key rotation, backups, optional MQTT/Traccar and firmware tools. Illustrated bilingual guides.",
       "categories": ["Tracking", "IoT"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/Apps/FindMyHub/icon.svg",
+      "logo": "https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/Apps/FindMyHub/icon.svg",
       "repository": {
-        "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores",
+        "url": "https://github.com/Mattboxx/TagRelayLab-Appstores",
         "stackfile": "compose.yaml"
       },
       "env": [

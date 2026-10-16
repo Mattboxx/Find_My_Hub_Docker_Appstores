@@ -1,13 +1,13 @@
-# Apple + Google Tracking Server
+# TagRelayLab Server
 
-**Self-hosted Apple Find My + Google Find Hub tracking, Bluetooth firmware tools and ESP32 libraries.**
+**Experimental self-hosted Bluetooth tracker maps, local history and firmware tools.**
 
 [Support development on Ko-fi](https://ko-fi.com/mattboxx) · [Documentation](docs/README.md) · [Screenshots](docs/screenshots/README.md) · [Install](#installation)
 
 ## What is this project?
 
 A self-hosted server for **Apple Find My** and **Google Find Hub** Bluetooth
-trackers, with one web interface: **Apple + Google Tracking**. Run it on your own NAS,
+trackers, with one web interface: **TagRelayLab**. Run it on your own NAS,
 home server or Docker host, sign in from a phone or computer, and see your devices
 on a map with a persistent history of their reported positions.
 
@@ -24,10 +24,19 @@ with your tracker keys, reads Google locations from the provider, and saves
 local history. Background polling continues even with the browser closed.
 Multiple accounts can share the server while keeping their devices separate.
 
+TagRelayLab is an independent community experiment, not an official or certified
+accessory service. Each installation uses its own accounts and data: there is
+**no project-run central tracking server, required subscription or payment**.
+Ko-fi donations are entirely optional. Apple/Google services, map tiles and
+optional integrations remain external dependencies with their own terms.
+
 **It is not a GPS receiver or a new finding network.** Trackers broadcast Bluetooth;
 nearby contributing phones relay sightings to Apple or Google. Coverage, latency
 and report availability depend on those networks. This unofficial project is not
 affiliated with Apple or Google; use only devices you own or are authorized to track.
+
+Read [scope, privacy and limitations](docs/PROJECT_SCOPE.md) and
+[licenses and corresponding sources](docs/LICENSING.md) before deployment.
 
 [![Illustrated map and history tour with synthetic demonstration data](docs/demos/map-history-tour.gif)](docs/demos/map-history-tour.gif)
 
@@ -75,7 +84,7 @@ WebSerial or downloaded files. [ESP32 page](docs/screenshots/12-esp32-flasher.jp
 The page also generates a **configured FindMyAdv ZIP**: library source,
 ready-to-copy examples and an optional PlatformIO profile. Integrate it into an
 existing **Arduino/PlatformIO firmware on a BLE-capable ESP32**, keeping your
-application's purpose and main loop. [Library and integration guide](https://github.com/Mattboxx/Apple-Google-Tracking-Esp32-Library).
+application's purpose and main loop. [Library and integration guide](https://github.com/Mattboxx/TagRelayLab-ESP32-Library).
 
 <details>
 <summary>More examples: unified views and Google report analysis</summary>
@@ -109,7 +118,7 @@ is recommended. [Account setup details](docs/INSTALLATION.md#google-account-prer
 
 | Layout | What runs | Total |
 | --- | --- | --- |
-| **All-in-One (recommended)** | `apple-google-tracking-server` bundles web + Apple + Google; Anisette remains separate | **2 containers** |
+| **All-in-One (recommended)** | `tagrelaylab-server` bundles web + Apple + Google; Anisette remains separate | **2 containers** |
 | **Modular (legacy)** | Separate web, Apple and Google services, plus Anisette | **4 containers** |
 
 Use **All-in-One for new installations**. The four-container modular stack is
@@ -120,7 +129,7 @@ Both offer the same web features; existing installations do not migrate automati
 
 ```sh
 mkdir apple-google-tracking && cd apple-google-tracking
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/all-in-one/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/all-in-one/compose.yaml -o compose.yaml
 mkdir -p data/anisette
 sudo chown 1000:1000 data/anisette
 docker compose up -d
@@ -128,7 +137,7 @@ docker compose up -d
 
 Open **`http://SERVER_IP:8125`**, create the administrator and complete **Setup**.
 The directory ownership step is for Linux only. For Windows Docker Desktop,
-custom paths, backups or migration, read the [All-in-One guide](https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/blob/main/all-in-one/README.md).
+custom paths, backups or migration, read the [All-in-One guide](https://github.com/Mattboxx/TagRelayLab-Appstores/blob/main/all-in-one/README.md).
 
 ### Legacy modular stack or app store
 
@@ -136,14 +145,14 @@ For an existing modular deployment or an explicit legacy installation:
 
 ```sh
 mkdir tracking-modular && cd tracking-modular
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.23/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/v1.1.24/compose.yaml -o compose.yaml
 docker compose up -d
 ```
 
-For ZimaOS/CasaOS, add this **JSON source** (Apple + Google Tracking Server), then install Apple + Google Tracking:
+For ZimaOS/CasaOS, add this **JSON source** (TagRelayLab Server), then install TagRelayLab:
 
 ```text
-https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store.json
+https://cdn.jsdelivr.net/gh/Mattboxx/TagRelayLab-Appstores@gh-pages/store.json
 ```
 
 [Other stores and panels](docs/STORES.md) · [Full installation guide](docs/INSTALLATION.md)
@@ -156,7 +165,7 @@ https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store
 Anisette is a separate upstream Apple authentication helper in both layouts.
 Fewer containers do not automatically mean lower memory usage or less account setup.
 
-The bundle is `ghcr.io/mattboxx/apple-google-tracking-server`; tags `1.1.23`,
+The bundle is `ghcr.io/mattboxx/tagrelaylab-server`; tags `1.1.24`,
 `stable` and `latest` are available. The legacy name `find-my-hub` stays compatible.
 `find-my-web` is **web-only**, not a bundle alias. Keep the current data mounts,
 ports and Compose project name when changing only an image reference.
@@ -223,6 +232,6 @@ Built on [macless-haystack](https://github.com/dchristl/macless-haystack),
 Leaflet and OpenStreetMap. Third-party projects retain their own licenses.
 [Full upstream acknowledgements](ACKNOWLEDGEMENTS.md) · [License and source notices](docs/LICENSING.md).
 
-If Apple + Google Tracking helps you, consider [buying me a coffee on Ko-fi](https://ko-fi.com/mattboxx)
+If TagRelayLab helps you, consider [buying me a coffee on Ko-fi](https://ko-fi.com/mattboxx)
 to support continued maintenance, clearer guides and new improvements.
 Donations are optional; every feature remains available without donating.

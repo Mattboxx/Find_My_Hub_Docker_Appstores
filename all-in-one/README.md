@@ -1,13 +1,13 @@
-# Apple + Google Tracking Server — All-in-One
+# TagRelayLab Server — All-in-One
 
-The `apple-google-tracking-server` image runs **web, Apple provider and Google provider** as
+The `tagrelaylab-server` image runs **web, Apple provider and Google provider** as
 three independently supervised processes. Anisette uses its original upstream
 image in a second container. Compose starts both with one command. This is
 deliberately **not a single container containing Anisette**.
 
 **Recommended for new installations.** The four-container modular layout is legacy.
 
-| Layout | Apple + Google Tracking containers | Anisette | Total |
+| Layout | TagRelayLab containers | Anisette | Total |
 | --- | --- | --- | --- |
 | Modular (legacy) | Web + Apple + Google, each separate | 1 upstream container | **4** |
 | All-in-One (recommended) | Web + Apple + Google inside one container | 1 upstream container | **2** |
@@ -19,7 +19,7 @@ a deliberate migration; it is not an automatic store update. `find-my-web` is we
 
 The previous `ghcr.io/mattboxx/find-my-hub` name remains a compatibility alias.
 Existing configurations can keep it. New installations should use the explicit
-`ghcr.io/mattboxx/apple-google-tracking-server` name. No images or data are deleted.
+`ghcr.io/mattboxx/tagrelaylab-server` name. No images or data are deleted.
 
 The original separate-provider stack and standard external providers remain
 supported. No installation is migrated automatically. Firmware, identities and
@@ -39,7 +39,7 @@ Create an empty installation folder and download this public Compose recipe:
 
 ```sh
 mkdir find-my-hub && cd find-my-hub
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/all-in-one/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/all-in-one/compose.yaml -o compose.yaml
 mkdir -p data/anisette
 sudo chown 1000:1000 data/anisette
 docker compose up -d
@@ -65,7 +65,7 @@ Optional values can be placed in an installation-local `.env`:
 | --- | --- | --- |
 | `WEB_PORT` | `8125` | Published web port |
 | `APP_DATA_DIR` | `./data` | Host data root |
-| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/apple-google-tracking-server:1.1.23` | Pinned bundle image |
+| `FINDMY_AIO_IMAGE` | `ghcr.io/mattboxx/tagrelaylab-server:1.1.24` | Pinned bundle image |
 | `APPLE_SETUP_TOKEN` | empty | Optional internal Apple setup token |
 | `GOOGLE_TOKEN` | empty | Optional internal Google API/setup token |
 
@@ -79,7 +79,7 @@ uses `main`. Historical `v1.1.21` recipes still refer to the old image name and
 remain valid. To adopt the new name in an existing bundle installation, change
 only the image reference (or `FINDMY_AIO_IMAGE`), preserving every data mount,
 environment value, port and Compose project name. This is not a modular-to-bundle
-migration. The two names resolve to the same 1.1.23 image digest.
+migration. The two names resolve to the same 1.1.24 image digest.
 
 ## Update without losing data
 
@@ -165,7 +165,7 @@ docker compose -f deploy/all-in-one/compose.yaml -f deploy/all-in-one/compose.bu
 ```
 
 Set `FINDMY_PROVIDER_TAG` if you need a different existing provider release;
-its default is `1.1.23`. This builds the bundle locally, not Anisette.
+its default is `1.1.24`. This builds the bundle locally, not Anisette.
 
 ## Italiano
 
@@ -177,7 +177,7 @@ poi `http://IP_SERVER:8125` e completa la configurazione dei tuoi account.
 Non serve modificare un'installazione funzionante: lo stack separato resta
 disponibile. Se migri, ferma prima lo stack originale, salva tutte e cinque le
 cartelle dati e imposta `APP_DATA_DIR` al percorso verificato. Non avviare mai
-due versioni sullo stesso archivio. Usa il tag `1.1.23` per una versione fissa,
+due versioni sullo stesso archivio. Usa il tag `1.1.24` per una versione fissa,
 oppure `stable`/`latest` per seguire le release stabili. Le chiavi, il firmware
 e lo storico non vengono rigenerati; autenticazione Apple/Google e 2FA rimangono
 necessarie.

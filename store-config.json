@@ -2,13 +2,13 @@
   "version": 2,
   "store_id": "find-my-hub-docker-catalog",
   "name": {
-    "en_US": "Apple + Google Tracking Server",
-    "it_IT": "Apple + Google Tracking Server"
+    "en_US": "TagRelayLab Server",
+    "it_IT": "TagRelayLab Server"
   },
   "description": {
     "en_US": "Legacy four-container catalog for existing installations. Use All-in-One (two containers) for a new setup. Tracking, firmware and configured ESP32 libraries.",
     "it_IT": "Catalogo legacy a quattro container per installazioni esistenti. Per nuove installazioni usa All-in-One (due container). Tracciamento, firmware e librerie ESP32."
   },
   "maintainer": "Mattboxx",
-  "url": "https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores"
+  "url": "https://github.com/Mattboxx/TagRelayLab-Appstores"
 }

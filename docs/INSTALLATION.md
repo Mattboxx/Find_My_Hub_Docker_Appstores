@@ -36,7 +36,7 @@ The local web administrator is separate from the Google account.
 
 ## Option A — All-in-One: 2 containers (recommended)
 
-**Explicit image name: `ghcr.io/mattboxx/apple-google-tracking-server`.**
+**Explicit image name: `ghcr.io/mattboxx/tagrelaylab-server`.**
 It contains web + Apple provider + Google provider, supervised as three
 independent processes. The Compose recipe adds the separate upstream Anisette
 container. This is **not** a one-container installation including Anisette.
@@ -45,7 +45,7 @@ For a fresh Linux server:
 
 ```sh
 mkdir find-my-hub-bundle && cd find-my-hub-bundle
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/all-in-one/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/all-in-one/compose.yaml -o compose.yaml
 mkdir -p data/anisette
 sudo chown 1000:1000 data/anisette
 docker compose up -d
@@ -55,19 +55,20 @@ docker compose ps
 Open **`http://SERVER_IP:8125`** and complete the same administrator and provider
 setup. On Linux, the directory preparation lets upstream Anisette write as its
 unprivileged UID 1000. For a custom data path, Windows Docker Desktop, existing
-data or rollback, follow the [complete bundle guide](https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores/blob/main/all-in-one/README.md).
+data or rollback, follow the [complete bundle guide](https://github.com/Mattboxx/TagRelayLab-Appstores/blob/main/all-in-one/README.md).
 
 The new package name is an explicit alias of the existing stable bundle,
 not a different firmware or database format. **`find-my-hub` remains a legacy
 compatible image name**; existing installations are not broken or forced to move.
+`apple-google-tracking-server` also remains a compatibility alias for the bundle.
 `find-my-web` is **web only**, never an All-in-One alias.
 
 | Image reference | Meaning |
 | --- | --- |
-| `ghcr.io/mattboxx/find-my-web:1.1.23` | Web only; needs separate/existing providers |
-| `ghcr.io/mattboxx/apple-google-tracking-server:1.1.23` | Web + Apple + Google bundle |
-| `ghcr.io/mattboxx/apple-google-tracking-server:stable` or `:latest` | Latest stable bundle |
-| `ghcr.io/mattboxx/find-my-hub:1.1.23` | Legacy name for that same bundled image |
+| `ghcr.io/mattboxx/find-my-web:1.1.24` | Web only; needs separate/existing providers |
+| `ghcr.io/mattboxx/tagrelaylab-server:1.1.24` | Web + Apple + Google bundle |
+| `ghcr.io/mattboxx/tagrelaylab-server:stable` or `:latest` | Latest stable bundle |
+| `ghcr.io/mattboxx/find-my-hub:1.1.24` | Legacy name for that same bundled image |
 
 Version tags pin a reproducible release. `latest`/`stable` follow future stable
 releases; they do not update a running container by themselves. The modular
@@ -85,7 +86,7 @@ If you explicitly need the legacy layout, use an empty folder:
 
 ```sh
 mkdir find-my-hub-modular && cd find-my-hub-modular
-curl -fsSL https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/v1.1.23/compose.yaml -o compose.yaml
+curl -fsSL https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/v1.1.24/compose.yaml -o compose.yaml
 docker compose up -d
 docker compose ps
 ```

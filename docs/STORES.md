@@ -2,9 +2,9 @@
 
 [Project overview](../README.md) · [Installation guide](INSTALLATION.md)
 
-This catalog is the public installation companion to **Apple + Google Tracking
-Server**. The catalog is displayed as **Apple + Google Tracking Server**;
-its native app is still named **Apple + Google Tracking**. Store IDs, data paths
+This catalog is the public installation companion to **TagRelayLab
+Server**. The catalog is displayed as **TagRelayLab Server**;
+its native app is still named **TagRelayLab**. Store IDs, data paths
 and subscription URLs stay stable; a repository or image rename does not require
 reinstalling the app.
 
@@ -31,8 +31,8 @@ manifest, all kept in this repository.
 ## Legacy modular stack — generic Docker installation
 
 ```bash
-git clone https://github.com/Mattboxx/Find_My_Hub_Docker_Appstores.git
-cd Find_My_Hub_Docker_Appstores
+git clone https://github.com/Mattboxx/TagRelayLab-Appstores.git
+cd TagRelayLab-Appstores
 docker compose up -d
 ```
 
@@ -42,7 +42,7 @@ Both provider tokens may remain empty on a trusted local network.
 
 The catalog does not bundle or require Traccar. A standard existing Traccar
 Server can be enabled later from the administrator **Setup → Traccar map**
-card. If disabled or unreachable, Apple + Google Tracking continues to manage providers,
+card. If disabled or unreachable, TagRelayLab continues to manage providers,
 users, history, MQTT, unified views, and its own map independently.
 
 ## CasaOS / ZimaOS
@@ -51,7 +51,7 @@ Current ZimaOS versions use the v2 static catalog protocol. In
 **App Store -> Add Source**, register the complete JSON source URL:
 
 ```text
-https://cdn.jsdelivr.net/gh/Mattboxx/Find_My_Hub_Docker_Appstores@gh-pages/store.json
+https://cdn.jsdelivr.net/gh/Mattboxx/TagRelayLab-Appstores@gh-pages/store.json
 ```
 
 The generated `store.json`, `index.json`, application manifests, and assets
@@ -68,7 +68,7 @@ for its refresh cycle or restart the App Store service once.
 Set **App Templates URL** to:
 
 ```text
-https://raw.githubusercontent.com/Mattboxx/Find_My_Hub_Docker_Appstores/main/portainer/templates.json
+https://raw.githubusercontent.com/Mattboxx/TagRelayLab-Appstores/main/portainer/templates.json
 ```
 
 The template deploys the legacy modular root `compose.yaml`: four containers with
@@ -88,9 +88,9 @@ that catalog's maintainers.
 One-click installation requires anonymous access to these multi-architecture
 images:
 
-- `ghcr.io/mattboxx/find-my-web:1.1.23`
-- `ghcr.io/mattboxx/find-my-apple-provider:1.1.23`
-- `ghcr.io/mattboxx/find-my-google-provider:1.1.23`
+- `ghcr.io/mattboxx/find-my-web:1.1.24`
+- `ghcr.io/mattboxx/find-my-apple-provider:1.1.24`
+- `ghcr.io/mattboxx/find-my-google-provider:1.1.24`
 
 All three images are public and expose `linux/amd64` and `linux/arm64`
 manifests. The CI validates every JSON and Compose manifest, builds the ZimaOS
@@ -111,7 +111,7 @@ APP_DATA_DIR=/tmp/find-my-hub docker compose -f adapters/umbrel/find-my-hub/dock
 APP_DATA_DIR=/tmp/find-my-hub docker compose -f adapters/runtipi/apps/find-my-hub/docker-compose.yml config --quiet
 ```
 
-Apple + Google Tracking uses unofficial, reverse-engineered Apple and Google integrations.
+TagRelayLab uses unofficial, reverse-engineered Apple and Google integrations.
 It is not affiliated with Apple or Google. Use dedicated accounts and trackers
 you own.
 ## Previous release highlights
